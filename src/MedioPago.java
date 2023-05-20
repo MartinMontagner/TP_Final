@@ -1,5 +1,5 @@
 public enum MedioPago {
-    Tarjeta ("Tarjeta"), Efectivo ("Plata"), Transferencia("Mercado Pago");
+    TARJETA ("Tarjeta"), EFECTIVO ("Plata"), TRANSFERENCIA ("Mercado Pago");
 
     private String medioPago;
 
@@ -11,10 +11,4 @@ public enum MedioPago {
         return medioPago;
     }
 
-    @Override
-    public String toString() {
-        return "MedioPago{" +
-                "medioPago='" + medioPago + '\'' +
-                '}';
-    }
 }

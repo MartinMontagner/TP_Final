@@ -5,21 +5,26 @@ public class Turno {
     private Cliente cliente;
     private Factura factura;
     private LocalDate fecha;
-    public ArrayList <Turno> ListaTurnos;
+    public ArrayList<Turno> ListaTurnos;
 
+    //todo 1)Una lista con fechas por dias por ejemplo de lunes a viernes cuando se agrega un nuevo turno
+    // se elimina del lista y añade al atributo fecha de la clase turno.
 
     public Turno(Cliente cliente, Factura factura, LocalDate fecha) {
         this.cliente = cliente;
         this.factura = factura;
         this.fecha = fecha;
-        this.ListaTurnos=new ArrayList<>();
+        this.ListaTurnos = new ArrayList<>();
     }
-    public void agregarListaTurno(Cliente cliente,Factura factura, LocalDate fecha)
-    {
-        Turno turno= new Turno(cliente,factura,fecha);
+
+    public void agregarListaTurno(Cliente cliente, Factura factura, LocalDate fecha) {
+        Turno turno = new Turno(cliente, factura, fecha);
         this.ListaTurnos.add(turno);
     }
-    public Turno(){this.ListaTurnos=new ArrayList<>();}
+
+    public Turno() {
+        this.ListaTurnos = new ArrayList<>();
+    }
 
     @Override
     public String toString() {
@@ -30,6 +35,7 @@ public class Turno {
                 ", ListaTurnos=" + ListaTurnos +
                 '}';
     }
+
     public Cliente getCliente() {
         return cliente;
     }

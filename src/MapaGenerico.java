@@ -59,6 +59,7 @@ public class MapaGenerico<K, V> {
     public Collection<V> devolverTodosLosValues() {
         return mapita.values();
     }
+
     //todo cuidado con usar esto eh. Porque se borran los repetidos.
     public Set<V> pasarTodoValuesAUnSet() {
         Collection<V> value = this.devolverTodosLosValues();

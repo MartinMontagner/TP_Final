@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Factura {
+public class Factura{
     private Double precio;
     private MedioPago medioPago;
     private Servicio service;
@@ -11,7 +11,7 @@ public class Factura {
     public Factura(MedioPago medioPago, Servicio service) {
         this.medioPago = medioPago;
         this.service = service;
-        this.precio = calcularPrecioFactura(service);
+        this.precio = calcularPrecioFactura();
 
     }
 
@@ -31,16 +31,23 @@ public class Factura {
         this.medioPago = medioPago;
     }
 
+    public Servicio getService() {
+        return service;
+    }
+
+    public void setService(Servicio service) {
+        this.service = service;
+    }
+
     @Override
     public String toString() {
         return "Factura{" + service +
                 ", con un precio de=" + precio +
                 ", pagado con= " + medioPago + "}";
     }
+    public Double calcularPrecioFactura() {
 
-    public double calcularPrecioFactura(Servicio service) {
-
-        double precioFactura = service.calcularPrecioxHora();
+        double precioFactura = this.service.calcularPrecioxHora();
 
         int flag = 0;
 
@@ -73,10 +80,6 @@ public class Factura {
 
             return precioFactura;
     }
-
-
-
-
 
 }
 

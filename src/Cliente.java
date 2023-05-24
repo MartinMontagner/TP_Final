@@ -37,11 +37,15 @@ public class Cliente {
         this.nombre = nombre;
     }
 
+
+    public Cliente() {
+    }
+
     public Cliente(String nombre, String apellido, Integer idCliente, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.idCliente = idCliente;
         this.telefono = telefono;
     }
-    
+
 }

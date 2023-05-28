@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MainFrame">
+  <grid id="27dc6" binding="jp" layout-manager="CardLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <background color="-13619152"/>
+      <enabled value="true"/>
+      <foreground color="-16718374"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="4cf91" binding="tabbedPane1" default-binding="true">
+        <constraints>
+          <card name="Card1"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="eb45d" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="TURNOS"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="ffbe3" class="javax.swing.JButton" binding="RESERVARUNTURNOButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="RESERVAR UN TURNO"/>
+                </properties>
+              </component>
+              <component id="d5f7d" class="javax.swing.JButton" binding="VERTURNOSButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="VER TURNOS"/>
+                </properties>
+              </component>
+              <component id="de1f8" class="javax.swing.JButton" binding="ELIMINARTURNOButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="ELIMINAR TURNO"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="2305d" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="CLIENTES"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="89287" class="javax.swing.JButton" binding="VERCLIENTESButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="VER CLIENTES"/>
+                </properties>
+              </component>
+              <component id="29783" class="javax.swing.JButton" binding="AGREGARCLIENTEButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="AGREGAR CLIENTE"/>
+                </properties>
+              </component>
+              <component id="9a2d5" class="javax.swing.JButton" binding="ELIMINARCLIENTEButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="ELIMINAR CLIENTE"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+      <grid id="ad7a8" binding="verTurnos" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <card name="Card2"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="7bc9a" class="javax.swing.JFormattedTextField" binding="formattedTextField1" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="4" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

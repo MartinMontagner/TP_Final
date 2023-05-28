@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Factura{
+public class Factura implements Serializable {
     private Double precio;
     private MedioPago medioPago;
     private Servicio service;

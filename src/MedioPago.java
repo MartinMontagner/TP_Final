@@ -1,4 +1,6 @@
-public enum MedioPago {
+import java.io.Serializable;
+
+public enum MedioPago implements Serializable {
     TARJETA ("Tarjeta"), EFECTIVO ("Plata"), TRANSFERENCIA ("Mercado Pago");
 
     private String medioPago;

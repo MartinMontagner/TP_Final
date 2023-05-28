@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Turno {
+public class Turno implements Serializable {
     private Cliente cliente;
     private Factura factura;
     private LocalDate fecha;

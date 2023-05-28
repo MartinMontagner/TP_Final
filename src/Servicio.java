@@ -1,4 +1,6 @@
-public abstract class Servicio implements Cobros {
+import java.io.Serializable;
+
+public abstract class Servicio implements Cobros, Serializable {
     private Double duracion;
 
     public Servicio(Double duracion) {

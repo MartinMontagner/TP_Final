@@ -60,4 +60,16 @@ public class Turno implements Serializable {
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
+
+
+    public void descuentoDeTurnos()
+    {
+        if(cliente.verificarTurnosCliente())
+        {
+            System.out.println("Precio: " + factura.getPrecio());
+            factura.setPrecio(factura.getPrecio()*0.8);
+            System.out.println("Precio: " + factura.getPrecio());
+        }
+        else {System.out.println("Probando no hay 20 turnos papafrita");}
+    }
 }

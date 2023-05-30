@@ -4,6 +4,9 @@ public class Cliente implements Serializable {
     private String nombre;
     private String apellido;
     private Integer idCliente;
+    private static Integer totalClientes=1;
+
+    private Integer turnosAcumulados=40;
 
     private String telefono;
 
@@ -39,15 +42,56 @@ public class Cliente implements Serializable {
         this.nombre = nombre;
     }
 
+    public Integer getTotalClientes() {
+        return totalClientes;
+    }
+
+    public Integer getTurnosAcumulados() {
+        return turnosAcumulados;
+    }
+
+    public void setTurnosAcumulados(Integer turnosAcumulados) {
+        this.turnosAcumulados = turnosAcumulados;
+    }
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, Integer idCliente, String telefono) {
+    public Cliente(String nombre, String apellido, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.idCliente = idCliente;
         this.telefono = telefono;
+        this.idCliente = totalClientes;
+        totalClientes++;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", idCliente=" + idCliente +
+                ", telefono='" + telefono + '\'' +
+                '}';
+    }
+
+    public Boolean verificarTurnosCliente()
+    {
+        boolean flag = false;
+
+        if (turnosAcumulados>=20)
+        {
+            //System.out.println("hay " + turnosAcumulados);
+            turnosAcumulados=turnosAcumulados-20;
+            flag=true;
+           // System.out.println("hay " + turnosAcumulados);
+
+        }
+        else
+        {
+            turnosAcumulados ++;
+            //System.out.println("hay " + turnosAcumulados);
+        }
+        return flag;
+    }
 }

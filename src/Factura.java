@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.Scanner;
 
-public class Factura implements Serializable {
+public class Factura implements Serializable  {
     private Double precio;
     private MedioPago medioPago;
     private Servicio service;
@@ -20,7 +20,7 @@ public class Factura implements Serializable {
         return precio;
     }
 
-    public void setPrecio() {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 
@@ -77,10 +77,13 @@ public class Factura implements Serializable {
             } catch (IllegalArgumentException e) {
                 System.out.println("Método de pago inválido.");
             }
+
         }
 
             return precioFactura;
     }
+
+
 
 }
 

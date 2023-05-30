@@ -20,16 +20,24 @@ public class Main {
         Factura factura1 = new Factura(MedioPago.EFECTIVO, servicioMano);
         Factura factura2 = new Factura(MedioPago.TARJETA, servicioPie);
 
-        Cliente cliente1 = new Cliente("Julian", "Zapata",0,"2234567899");
-        Cliente cliente2 = new Cliente("Martin", "Montagner",1,"2234567899");
-        Cliente cliente3 = new Cliente("Franco", "Guidi",2,"2234567899");
-        Cliente cliente4 = new Cliente("Kevin", "Tolosa",3,"2234567899");
+        Cliente cliente1 = new Cliente("Julian", "Zapata", "2234567899");
+        Cliente cliente2 = new Cliente("Martin", "Montagner", "2234567899");
+        Cliente cliente3 = new Cliente("Franco", "Guidi", "2234567899");
+        Cliente cliente4 = new Cliente("Kevin", "Tolosa", "2234567899");
 
-        List < Cliente > clientes = new ArrayList< >();
+        List<Cliente> clientes = new ArrayList<>();
         clientes.add(cliente1);
         clientes.add(cliente2);
         clientes.add(cliente3);
         clientes.add(cliente4);
+
+
+        Turno turno1 = new Turno(cliente3, factura1, LocalDate.now());
+        Turno turno2 = new Turno(cliente4, factura2, LocalDate.now());
+
+        turno1.descuentoDeTurnos();
+
+        System.out.println(turno1.toString());
 
         //maneje archivos
         if (!(new File("clientes.json")).exists()) {

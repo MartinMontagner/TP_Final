@@ -3,6 +3,7 @@ import com.google.gson.Gson;
 import javax.swing.*;
 import java.io.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,8 @@ public class Main {
 
         Turno turno1 = new Turno(cliente3, factura1, LocalDate.now());
         Turno turno2 = new Turno(cliente4, factura2, LocalDate.now());
+        Turno turno3 = new Turno(cliente1, factura2, LocalDate.now());
+        Turno turno4 = new Turno(cliente2, factura2, LocalDate.now());
 
         turno1.descuentoDeTurnos();
 
@@ -69,7 +72,13 @@ public class Main {
 //        else
 //            System.out.printf("no la cvontiene");
 //
+        MapaGenerico<LocalDate, ListaTurno> mapita = new MapaGenerico<>();
+        mapita.agregarDatoSinRepetir(LocalDate.now(), new ListaTurno());
 
-
+        mapita.agregarTurnoAMapa(turno1, LocalDate.now());
+        mapita.agregarTurnoAMapa(turno2, LocalDate.now());
+        mapita.agregarTurnoAMapa(turno3, LocalDate.now());
+        //mapita.agregarTurnoAMapa(turno4, LocalDateTime.);
+        mapita.recorrerElMapitaYMostrar();
     }
 }

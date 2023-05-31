@@ -6,7 +6,7 @@ public class Turno implements Serializable {
     private Cliente cliente;
     private Factura factura;
     private LocalDate fecha;
-    public ArrayList<Turno> ListaTurnos;
+
 
     //todo 1)Una lista con fechas por dias por ejemplo de lunes a viernes cuando se agrega un nuevo turno
     // se elimina del lista y añade al atributo fecha de la clase turno.
@@ -15,16 +15,9 @@ public class Turno implements Serializable {
         this.cliente = cliente;
         this.factura = factura;
         this.fecha = fecha;
-        this.ListaTurnos = new ArrayList<>();
-    }
-
-    public void agregarListaTurno(Cliente cliente, Factura factura, LocalDate fecha) {
-        Turno turno = new Turno(cliente, factura, fecha);
-        this.ListaTurnos.add(turno);
     }
 
     public Turno() {
-        this.ListaTurnos = new ArrayList<>();
     }
 
     @Override
@@ -33,7 +26,6 @@ public class Turno implements Serializable {
                 "cliente=" + cliente +
                 ", factura=" + factura +
                 ", fecha=" + fecha +
-                ", ListaTurnos=" + ListaTurnos +
                 '}';
     }
 

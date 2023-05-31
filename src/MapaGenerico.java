@@ -63,7 +63,16 @@ public class MapaGenerico<K, V> {
     //todo cuidado con usar esto eh. Porque se borran los repetidos.
     public Set<V> pasarTodoValuesAUnSet() {
         Collection<V> value = this.devolverTodosLosValues();
-        Set<V> set= new HashSet<>(value);
+        Set<V> set = new HashSet<>(value);
         return set;
+    }
+
+    public Boolean agregarTurnoAMapa(Turno turno, K k) {
+        ListaTurno listaTurno = (ListaTurno) this.devolverValue(k);
+        if (listaTurno.agregar(turno)) {
+            this.agregarDatoSobreescribiendo(k, (V) listaTurno);
+            return true;
+        }
+        return false;
     }
 }

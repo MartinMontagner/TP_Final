@@ -1,0 +1,25 @@
+{
+  "listaDeClientes": [
+    {
+      "nombre": "kevin",
+      "apellido": "tolosa",
+      "idCliente": 1,
+      "turnosAcumulados": 40,
+      "telefono": "1231232131"
+    },
+    {
+      "nombre": "franco",
+      "apellido": "guidi",
+      "idCliente": 2,
+      "turnosAcumulados": 40,
+      "telefono": "1231312"
+    },
+    {
+      "nombre": "gusti",
+      "apellido": "chielsa",
+      "idCliente": 3,
+      "turnosAcumulados": 40,
+      "telefono": "m2312312"
+    }
+  ]
+}

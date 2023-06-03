@@ -66,10 +66,10 @@ public class MapaGenerico<K, V> {
         Set<V> set = new HashSet<>(value);
         return set;
     }
-
+//TODO ACAAAAAAAAAAAAAAAAAAAAA MARTINNNNNNNNNNNNNNNNNNNNNNNN
     public Boolean agregarTurnoAMapa(Turno turno, K k) {
         ListaTurno listaTurno = (ListaTurno) this.devolverValue(k);
-        if (listaTurno.agregarTurnoALaLista(turno)) {
+        if (listaTurno.agregar(turno)) {
             this.agregarDatoSobreescribiendo(k, (V) listaTurno);
             return true;
         }

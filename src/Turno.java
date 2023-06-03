@@ -6,27 +6,21 @@ public class Turno implements Serializable {
     private Cliente cliente;
     private Factura factura;
     private LocalDate fecha;
+    private String horario;
 
 
     //todo 1)Una lista con fechas por dias por ejemplo de lunes a viernes cuando se agrega un nuevo turno
     // se elimina del lista y añade al atributo fecha de la clase turno.
 
-    public Turno(Cliente cliente, Factura factura, LocalDate fecha) {
+
+    public Turno(Cliente cliente, Factura factura, LocalDate fecha, String horario) {
         this.cliente = cliente;
         this.factura = factura;
         this.fecha = fecha;
+        this.horario = horario;
     }
 
     public Turno() {
-    }
-
-    @Override
-    public String toString() {
-        return "Turno{" +
-                "cliente=" + cliente +
-                ", factura=" + factura +
-                ", fecha=" + fecha +
-                '}';
     }
 
     public Cliente getCliente() {
@@ -53,6 +47,13 @@ public class Turno implements Serializable {
         this.fecha = fecha;
     }
 
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
 
     public void descuentoDeTurnos()
     {

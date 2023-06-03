@@ -24,21 +24,22 @@ public class Main {
         Factura factura2 = new Factura(MedioPago.TARJETA, servicioPie);
 
 //        Cliente cliente1 = new Cliente("Julian", "Zapata", "2234567899");
-//       Cliente cliente2 = new Cliente("Martin", "Montagner", "2234567899");
+//        Cliente cliente2 = new Cliente("Martin", "Montagner", "2234567899");
 //        Cliente cliente3 = new Cliente("Franco", "Guidi", "2234567899");
 //        Cliente cliente4 = new Cliente("Kevin", "Tolosa", "2234567899");
 
 
 
         ListaCliente lista = new ListaCliente();
+        ListaTurno listaTurno = new ListaTurno();
 
         lista.agregarClientesALaLista();
         lista.mostrarListaClientes();
-
+        listaTurno.agregarTurnoALaLista(lista);
         ArchivoJsonGenericos<ListaCliente> archivoJsonGenericos = new ArchivoJsonGenericos<>(lista);
 
         archivoJsonGenericos.escribirArchivo(lista);
-//        archivoJsonGenericos.leerArchivo(lista);
+       // archivoJsonGenericos.leerArchivo(lista);
 
 /*
 Asi se hace sin la clase
@@ -60,10 +61,10 @@ Asi se hace sin la clase
 
 
 //TURNOS
-//        Turno turno1 = new Turno(cliente3, factura1, LocalDate.now());
-//        Turno turno2 = new Turno(cliente4, factura2, LocalDate.now());
-//        Turno turno3 = new Turno(cliente1, factura2, LocalDate.now());
-//        Turno turno4 = new Turno(cliente2, factura2, LocalDate.now());
+//        Turno turno1 = new Turno(cliente3, factura1, LocalDate.now(),"M");
+//        Turno turno2 = new Turno(cliente4, factura2, LocalDate.now(),"T");
+//        Turno turno3 = new Turno(cliente1, factura2, LocalDate.now(),"T");
+//        Turno turno4 = new Turno(cliente2, factura2, LocalDate.now(),"N");
 //        turno1.descuentoDeTurnos();
 //        System.out.println(turno1.toString());
 
@@ -85,13 +86,13 @@ Asi se hace sin la clase
 
 
 //MAPA
-//        MapaGenerico<LocalDate, ListaTurno> mapita = new MapaGenerico<>();
-//        mapita.agregarDatoSinRepetir(LocalDate.now(), new ListaTurno());
-//
-//        mapita.agregarTurnoAMapa(turno1, LocalDate.now());
+        MapaGenerico<LocalDate, ListaTurno> mapita = new MapaGenerico<>();
+        mapita.agregarDatoSinRepetir(LocalDate.now(), new ListaTurno());
+
+//       mapita.agregarTurnoAMapa(turno1, LocalDate.now());
 //        mapita.agregarTurnoAMapa(turno2, LocalDate.now());
 //        mapita.agregarTurnoAMapa(turno3, LocalDate.now());
-//        //mapita.agregarTurnoAMapa(turno4, LocalDateTime.);
-//        mapita.recorrerElMapitaYMostrar();
+//        mapita.agregarTurnoAMapa(turno4, LocalDate.now());
+        mapita.recorrerElMapitaYMostrar();
     }
 }

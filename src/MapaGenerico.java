@@ -69,10 +69,19 @@ public class MapaGenerico<K, V> {
 
     public Boolean agregarTurnoAMapa(Turno turno, K k) {
         ListaTurno listaTurno = (ListaTurno) this.devolverValue(k);
-        if (listaTurno.agregar(turno)) {
+        if (listaTurno.agregarTurnoALaLista(turno)) {
             this.agregarDatoSobreescribiendo(k, (V) listaTurno);
             return true;
         }
         return false;
     }
+
+    public void recorrerElMapitaYVerLasKeys() {
+        for (Map.Entry<K, V> entry2 : mapita.entrySet()) {
+            K key = entry2.getKey();
+            System.out.println(" -> " + key);
+        }
+    }
+
+
 }

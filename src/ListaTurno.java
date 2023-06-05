@@ -33,10 +33,11 @@ public class ListaTurno extends Turno{
                 '}';
 
     }
-    private Turno crearTurno(ListaCliente listaCliente)
+    private Turno crearTurno()
     {
         Turno turno= new Turno();
         Scanner scanner = new Scanner(System.in);
+        ListaCliente listaCliente = new ListaCliente();
         turno.setCliente(listaCliente.buscarCliente());
         System.out.print("Ingrese fecha del turno DD/MM/AAAA: ");
         Integer fechaTurnoDia = scanner.nextInt() ;
@@ -48,13 +49,12 @@ public class ListaTurno extends Turno{
 
         return turno;
     }
-    public Boolean agregarTurnoALaLista (ListaCliente listaCliente)
+    public Boolean agregarTurnoALaLista ()
     {
         Turno turno = new Turno();
-
         if (listaTurno.size()<3)
         {
-            turno= crearTurno(listaCliente);
+            turno= crearTurno();
             if(verificacionDisponible(turno))
             {
                 listaTurno.add(turno);

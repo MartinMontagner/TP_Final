@@ -69,7 +69,8 @@ public class MapaGenerico<K, V> {
 //TODO ACAAAAAAAAAAAAAAAAAAAAA MARTINNNNNNNNNNNNNNNNNNNNNNNN
     public Boolean agregarTurnoAMapa(Turno turno, K k) {
         ListaTurno listaTurno = (ListaTurno) this.devolverValue(k);
-        if (listaTurno.agregar(turno)) {
+        if (listaTurno.agregarTurnoALaLista() )
+        {
             this.agregarDatoSobreescribiendo(k, (V) listaTurno);
             return true;
         }

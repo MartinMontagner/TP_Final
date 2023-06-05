@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Turno implements Serializable {
+public class Turno extends ListaCliente implements Serializable{
     private Cliente cliente;
     private Factura factura;
     private LocalDate fecha;

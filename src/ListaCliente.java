@@ -30,22 +30,30 @@ public class ListaCliente {
                 '}';
     }
 
+
+     public void crearCliente()
+     {
+         Scanner scanner = new Scanner(System.in);
+         System.out.print("Ingrese el nombre del cliente: ");
+         String nombre = scanner.nextLine();
+         System.out.print("Ingrese el apellido del cliente: ");
+         String apellido = scanner.nextLine();
+         System.out.print("Ingrese el telofono del cliente: ");
+         String telefono = scanner.nextLine();
+
+         Cliente x = new Cliente(nombre,apellido,telefono);
+
+         this.listaDeClientes.add(x);
+     }
     public void agregarClientesALaLista() {
+
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
 
         while(flag)
         {
-            System.out.print("Ingrese el nombre del cliente: ");
-            String nombre = scanner.nextLine();
-            System.out.print("Ingrese el apellido del cliente: ");
-            String apellido = scanner.nextLine();
-            System.out.print("Ingrese el telofono del cliente: ");
-            String telefono = scanner.nextLine();
 
-            Cliente x = new Cliente(nombre,apellido,telefono);
-
-            this.listaDeClientes.add(x);
+            crearCliente();
 
             System.out.print("¿Desea agregar otro cliente? (Si / No): ");
             String respuesta = scanner.nextLine();

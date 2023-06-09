@@ -35,7 +35,7 @@ public class Main {
 
         lista.agregarClientesALaLista();
         lista.mostrarListaClientes();
-        listaTurno.agregarTurnoALaLista();
+        listaTurno.agregarTurnoALaLista(lista);
         ArchivoJsonGenericos<ListaCliente> archivoJsonGenericos = new ArchivoJsonGenericos<>(lista);
 
         archivoJsonGenericos.escribirArchivo(lista);

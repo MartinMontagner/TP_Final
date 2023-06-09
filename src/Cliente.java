@@ -65,14 +65,35 @@ public class Cliente implements Serializable {
         totalClientes++;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Cliente{" +
+//                "nombre='" + nombre + '\'' +
+//                ", apellido='" + apellido + '\'' +
+//                ", idCliente=" + idCliente +
+//                ", telefono='" + telefono + '\'' +
+//                '}';
+//    }
     @Override
     public String toString() {
-        return "Cliente{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", idCliente=" + idCliente +
-                ", telefono='" + telefono + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("╔══════════════════════════════════╗\n");
+        sb.append("║      Información del Cliente     ║\n");
+        sb.append("╟──────────────────────────────────╢\n");
+        sb.append("║ Nombre: ").append(nombre).append(formatSpaces(nombre, 25)).append("║\n");
+        sb.append("║ Apellido: ").append(apellido).append(formatSpaces(apellido, 23)).append("║\n");
+        sb.append("║ ID Cliente:").append(idCliente).append(formatSpaces(idCliente.toString(), 22)).append("║\n");
+        sb.append("╚══════════════════════════════════╝\n");
+        return sb.toString();
+    }
+
+    private String formatSpaces(String text, int spaces) {
+        StringBuilder sb = new StringBuilder();
+        int remainingSpaces = spaces - text.length();
+        for (int i = 0; i < remainingSpaces; i++) {
+            sb.append(" ");
+        }
+        return sb.toString();
     }
 
     public Boolean verificarTurnosCliente()

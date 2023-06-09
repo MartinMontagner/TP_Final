@@ -17,29 +17,29 @@ public class Main {
         // y duracion etc usa todos los metodos
         // ordena las clases en carpetas asi es todos mas legible
 //
-        ServicioManicura servicioMano = new ServicioManicura(2.0, TipoDeManicura.GEL);
-        ServicioPedicura servicioPie = new ServicioPedicura(2.0, TipoDePedicura.PREMIUM);
-
-        Factura factura1 = new Factura(MedioPago.EFECTIVO, servicioMano);
-        Factura factura2 = new Factura(MedioPago.TARJETA, servicioPie);
-
+//        ServicioManicura servicioMano = new ServicioManicura(2.0, TipoDeManicura.GEL);
+//        ServicioPedicura servicioPie = new ServicioPedicura(2.0, TipoDePedicura.PREMIUM);
+//
+//        Factura factura1 = new Factura(MedioPago.EFECTIVO, servicioMano);
+//        Factura factura2 = new Factura(MedioPago.TARJETA, servicioPie);
+//
 //        Cliente cliente1 = new Cliente("Julian", "Zapata", "2234567899");
 //        Cliente cliente2 = new Cliente("Martin", "Montagner", "2234567899");
 //        Cliente cliente3 = new Cliente("Franco", "Guidi", "2234567899");
 //        Cliente cliente4 = new Cliente("Kevin", "Tolosa", "2234567899");
 
 
-
         ListaCliente lista = new ListaCliente();
-        ListaTurno listaTurno = new ListaTurno();
+//        ListaTurno listaTurno = new ListaTurno();
 
-        lista.agregarClientesALaLista();
-        lista.mostrarListaClientes();
-        listaTurno.agregarTurnoALaLista(lista);
-        ArchivoJsonGenericos<ListaCliente> archivoJsonGenericos = new ArchivoJsonGenericos<>(lista);
+        // lista.agregarClientesALaLista();
 
-        archivoJsonGenericos.escribirArchivo(lista);
-       // archivoJsonGenericos.leerArchivo(lista);
+        // lista.mostrarListaClientes();
+        //listaTurno.agregarTurnoALaLista(lista);
+        // ArchivoJsonGenericos<ListaCliente> archivoJsonGenericos = new ArchivoJsonGenericos<>(lista);
+
+        //  archivoJsonGenericos.escribirArchivo(lista);
+        // archivoJsonGenericos.leerArchivo(lista);
 
 /*
 Asi se hace sin la clase
@@ -86,13 +86,40 @@ Asi se hace sin la clase
 
 
 //MAPA
-        MapaGenerico<LocalDate, ListaTurno> mapita = new MapaGenerico<>();
-        mapita.agregarDatoSinRepetir(LocalDate.now(), new ListaTurno());
+        LocalDate fecha = LocalDate.of(2023, 06, 01);
+        int ultimoDiaDelMes = fecha.lengthOfMonth();
+        List<LocalDate> fechasDelMes = new ArrayList<>();
 
-//       mapita.agregarTurnoAMapa(turno1, LocalDate.now());
+        for (int dia = 1; dia <= ultimoDiaDelMes; dia++) {
+            LocalDate fechaActual = fecha.withDayOfMonth(dia);
+            fechasDelMes.add(fechaActual);
+        }
+
+
+        MapaGenerico<LocalDate, ListaTurno> mapita = new MapaGenerico<>();
+        for (LocalDate localDate : fechasDelMes) {
+            mapita.agregarDatoSobreescribiendo(localDate, new ListaTurno());
+        }
+
+        mapita.recorrerElMapitaYVerLasKeys();
+        
+        mapita.agregarTurnoAMapa(LocalDate.of(2023, 06, 06), lista);
+        mapita.recorrerElMapitaYMostrar();
+        lista.mostrarListaClientes();
+
+//        mapita.agregarDatoSinRepetir(LocalDate.of(1979, 01, 01), new ListaTurno());
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Ingrese fecha del turno DD/MM/AAAA: ");
+//        Integer fechaTurnoDia = scanner.nextInt();
+//        Integer fechaTurnoMes = scanner.nextInt();
+//        Integer fechaTurnoAnio = scanner.nextInt();
+//        scanner.nextLine();
+        // LocalDate fecha2 =(LocalDate.of(fechaTurnoAnio, fechaTurnoMes, fechaTurnoDia));
+
+        //   mapita.agregarTurnoAMapa(fecha, lista);
 //        mapita.agregarTurnoAMapa(turno2, LocalDate.now());
 //        mapita.agregarTurnoAMapa(turno3, LocalDate.now());
 //        mapita.agregarTurnoAMapa(turno4, LocalDate.now());
-        mapita.recorrerElMapitaYMostrar();
+        //  mapita.recorrerElMapitaYMostrar();
     }
 }

@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.*;
 
 public class MapaGenerico<K, V> {
@@ -67,9 +68,9 @@ public class MapaGenerico<K, V> {
         return set;
     }
 //TODO ACAAAAAAAAAAAAAAAAAAAAA MARTINNNNNNNNNNNNNNNNNNNNNNNN
-    public Boolean agregarTurnoAMapa(Turno turno, K k, ListaCliente listaCliente) {
+    public Boolean agregarTurnoAMapa(K k, ListaCliente listaCliente) {
         ListaTurno listaTurno = (ListaTurno) this.devolverValue(k);
-        if (listaTurno.agregarTurnoALaLista(listaCliente) )
+        if (listaTurno.agregarTurnoALaLista(listaCliente,(LocalDate) k))
         {
             this.agregarDatoSobreescribiendo(k, (V) listaTurno);
             return true;

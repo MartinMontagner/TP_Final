@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ListaTurno extends Turno{
+public class ListaTurno extends Turno {
     public List listaTurno = new ArrayList<Turno>();
 
     public ListaTurno(List listaTurno) {
@@ -23,9 +23,8 @@ public class ListaTurno extends Turno{
 
     @Override
     public String toString() {
-        if (listaTurno.size()==0)
+        if (listaTurno.size() == 0)
             return "no hay turnos";
-
 
 
         return "ListaTurno{" +
@@ -33,48 +32,41 @@ public class ListaTurno extends Turno{
                 '}';
 
     }
-    private Turno crearTurno(ListaCliente listaCliente)
-    {
-        Turno turno= new Turno();
+
+    private Turno crearTurno(ListaCliente listaCliente, LocalDate fechaDelTurno) {
+        Turno turno = new Turno();
         Scanner scanner = new Scanner(System.in);
-        if(listaCliente.buscarCliente()!=null)
-        {
-            turno.setCliente(listaCliente.buscarCliente());
-        }else {
+        Cliente c = listaCliente.buscarCliente();
+        if (c != null) {
+            turno.setCliente(c);
+        } else {
             crearCliente();
         }
-        System.out.print("Ingrese fecha del turno DD/MM/AAAA: ");
-        Integer fechaTurnoDia = scanner.nextInt() ;
-        Integer fechaTurnoMes = scanner.nextInt() ;
-        Integer fechaTurnoAnio = scanner.nextInt() ;
-        turno.setFecha(LocalDate.of(fechaTurnoAnio,fechaTurnoMes,fechaTurnoDia));
-        System.out.print("Ingrese Maniana(M), Tarde(T), Noche(N): ");
+        turno.setFecha(fechaDelTurno);
+        System.out.print("Ingrese Mañana(M), Tarde(T), Noche(N): ");
         turno.setHorario(scanner.nextLine());
 
         return turno;
     }
-    public Boolean agregarTurnoALaLista (ListaCliente listaCliente)
-    {
+
+    public Boolean agregarTurnoALaLista(ListaCliente listaCliente, LocalDate fecha) {
         Turno turno = new Turno();
-        if (listaTurno.size()<3)
-        {
-            turno= crearTurno(listaCliente);
-            if(verificacionDisponible(turno))
-            {
+        if (listaTurno.size() < 3) {
+            turno = crearTurno(listaCliente,fecha);
+           // if (verificacionDisponible(turno)) {
                 listaTurno.add(turno);
                 return true;
-            }
+          //  }
         }
         return false;
     }
+
     //MANIANA TARDE NOCHE VERIFICACION
-    public Boolean verificacionDisponible(Turno turno)
-    {
-        if(listaTurno.contains(turno.getHorario()))
-        {
-            return false;
+    public Boolean verificacionDisponible(Turno turno) {
+        if (listaTurno.contains(turno.getHorario())) {
+            return true;
         }
-        return true;
+        return false;
     }
 
 }

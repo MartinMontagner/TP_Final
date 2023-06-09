@@ -30,8 +30,7 @@ public class ListaCliente {
                 '}';
     }
 
-
-     public void crearCliente()
+    public void crearCliente()
      {
          Scanner scanner = new Scanner(System.in);
          System.out.print("Ingrese el nombre del cliente: ");

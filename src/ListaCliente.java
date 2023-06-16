@@ -26,14 +26,14 @@ public class ListaCliente {
     @Override
     public String toString() {
 
-        mostrarListaClientes();
+        //mostrarListaClientes();
 
         return "ListaCliente{" +
                 "listaDeClientes=" + listaDeClientes +
                 '}';
     }
 
-    public void crearCliente() {
+    public Cliente crearCliente() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el nombre del cliente: ");
         String nombre = scanner.nextLine();
@@ -45,6 +45,11 @@ public class ListaCliente {
         Cliente x = new Cliente(nombre, apellido, telefono);
 
         this.listaDeClientes.add(x);
+        return x;
+    }
+
+    public void agregarClienteUnico(Cliente c) {
+        this.listaDeClientes.add(c);
     }
 
     public void agregarClientesALaLista() {
@@ -98,11 +103,28 @@ public class ListaCliente {
         return null;
     }
 
-    public void mostrarListaClientes()
-    {
+    public void mostrarListaClientes() {
         for (Cliente i : listaDeClientes) {
             System.out.println(i.toString());
         }
     }
-
+//    public Boolean verificarTurnosCliente()
+//    {
+//        boolean flag = false;
+//
+//        if (turnosAcumulados>=20)
+//        {
+//            //System.out.println("hay " + turnosAcumulados);
+//            turnosAcumulados=turnosAcumulados-20;
+//            flag=true;
+//            // System.out.println("hay " + turnosAcumulados);
+//
+//        }
+//        else
+//        {
+//            turnosAcumulados ++;
+//            //System.out.println("hay " + turnosAcumulados);
+//        }
+//        return flag;
+//    }
 }

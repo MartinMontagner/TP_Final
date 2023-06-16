@@ -23,7 +23,7 @@ public class MapaGenerico<K, V> {
         for (Map.Entry<K, V> entry2 : mapita.entrySet()) {
             K key = entry2.getKey();
             V value = entry2.getValue();
-            ListaTurno listaTurno = (ListaTurno) this.devolverValue(key);
+           // ListaTurno listaTurno = (ListaTurno) this.devolverValue(key);
 //            ListaCliente lc= new ListaCliente();
 //            lc = listaTurno.getListaDeClientes();
             System.out.println(key + " -> " + value);
@@ -74,7 +74,7 @@ public class MapaGenerico<K, V> {
 //TODO ACAAAAAAAAAAAAAAAAAAAAA MARTINNNNNNNNNNNNNNNNNNNNNNNN
     public Boolean agregarTurnoAMapa(K k, ListaCliente listaCliente) {
         ListaTurno listaTurno = (ListaTurno) this.devolverValue(k);
-        if (listaTurno.agregarTurnoALaLista(listaCliente,(LocalDate) k))
+        if (listaTurno.agregarTurnoALaLista(listaCliente))
         {
             this.agregarDatoSobreescribiendo(k, (V) listaTurno);
             return true;

@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ListaTurno{
-    public List listaTurno = new ArrayList<Turno>();
+    public List listaTurno;
 
     public ListaTurno(List listaTurno) {
         this.listaTurno = listaTurno;
     }
 
     public ListaTurno() {
+        this.listaTurno = new ArrayList<>();
     }
 
     public List getListaTurno() {
@@ -32,7 +33,7 @@ public class ListaTurno{
 
     }
 
-    private Turno crearTurno(ListaCliente listaCliente, LocalDate fechaDelTurno)
+    private Turno crearTurno(ListaCliente listaCliente)
     {
         Turno turno = new Turno();
         Scanner scanner = new Scanner(System.in);
@@ -40,20 +41,20 @@ public class ListaTurno{
         if (c != null) {
             turno.setCliente(c);
         } else {
-            listaCliente.crearCliente();
+           turno.setCliente(listaCliente.crearCliente());
         }
-        turno.setFecha(fechaDelTurno);
+        //turno.setFecha(fechaDelTurno);
         System.out.print("Ingrese Mañana(M), Tarde(T), Noche(N): ");
         turno.setHorario(scanner.nextLine());
 
         return turno;
     }
 
-    public Boolean agregarTurnoALaLista(ListaCliente listaCliente, LocalDate fecha) {
+    public Boolean agregarTurnoALaLista(ListaCliente listaCliente) {
         Turno turno;
         if (listaTurno.size() < 3)
         {
-            turno = crearTurno(listaCliente,fecha);
+            turno = crearTurno(listaCliente);
            // if (verificacionDisponible(turno)) {
                 listaTurno.add(turno);
                 return true;

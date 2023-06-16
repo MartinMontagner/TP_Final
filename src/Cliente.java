@@ -96,23 +96,5 @@ public class Cliente implements Serializable {
         return sb.toString();
     }
 
-    public Boolean verificarTurnosCliente()
-    {
-        boolean flag = false;
 
-        if (turnosAcumulados>=20)
-        {
-            //System.out.println("hay " + turnosAcumulados);
-            turnosAcumulados=turnosAcumulados-20;
-            flag=true;
-           // System.out.println("hay " + turnosAcumulados);
-
-        }
-        else
-        {
-            turnosAcumulados ++;
-            //System.out.println("hay " + turnosAcumulados);
-        }
-        return flag;
-    }
 }

@@ -25,32 +25,34 @@ public class ListaCliente {
 
     @Override
     public String toString() {
+
+        mostrarListaClientes();
+
         return "ListaCliente{" +
                 "listaDeClientes=" + listaDeClientes +
                 '}';
     }
 
-    public void crearCliente()
-     {
-         Scanner scanner = new Scanner(System.in);
-         System.out.print("Ingrese el nombre del cliente: ");
-         String nombre = scanner.nextLine();
-         System.out.print("Ingrese el apellido del cliente: ");
-         String apellido = scanner.nextLine();
-         System.out.print("Ingrese el telofono del cliente: ");
-         String telefono = scanner.nextLine();
+    public void crearCliente() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el nombre del cliente: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Ingrese el apellido del cliente: ");
+        String apellido = scanner.nextLine();
+        System.out.print("Ingrese el telofono del cliente: ");
+        String telefono = scanner.nextLine();
 
-         Cliente x = new Cliente(nombre,apellido,telefono);
+        Cliente x = new Cliente(nombre, apellido, telefono);
 
-         this.listaDeClientes.add(x);
-     }
+        this.listaDeClientes.add(x);
+    }
+
     public void agregarClientesALaLista() {
 
         boolean flag = true;
         Scanner scanner = new Scanner(System.in);
 
-        while(flag)
-        {
+        while (flag) {
 
             crearCliente();
 
@@ -60,21 +62,20 @@ public class ListaCliente {
         }
     }
 
-    public Boolean eliminaClientesDeLaLista()
-    {
+    public Boolean eliminaClientesDeLaLista() {
         Scanner scanner = new Scanner(System.in);
         boolean flagSeguir = true;
         boolean flagEliminar = true;
 
-        while(flagSeguir)
-        {
+        while (flagSeguir) {
             Cliente x = buscarCliente();
 
-            if (this.listaDeClientes.remove(x))
-            {
+            if (this.listaDeClientes.remove(x)) {
                 flagEliminar = true;
 
-            }else {flagEliminar=false;}
+            } else {
+                flagEliminar = false;
+            }
 
             System.out.print("¿Desea eliminar otro cliente? (Si / No): ");
             String respuesta = scanner.nextLine();
@@ -89,21 +90,19 @@ public class ListaCliente {
         System.out.print("Ingrese el nombre del cliente a buscar: ");
         String nombre = scanner.nextLine();
 
-        for (Cliente cliente : listaDeClientes)
-        {
-            if (cliente.getNombre().equalsIgnoreCase(nombre))
-            {
+        for (Cliente cliente : listaDeClientes) {
+            if (cliente.getNombre().equalsIgnoreCase(nombre)) {
                 return cliente;
             }
         }
         return null;
     }
 
-    public void mostrarListaClientes() {
+    public void mostrarListaClientes()
+    {
         for (Cliente i : listaDeClientes) {
             System.out.println(i.toString());
         }
     }
-
 
 }

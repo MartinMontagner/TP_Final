@@ -8,10 +8,9 @@ public class Turno extends ListaCliente implements Serializable{
     private LocalDate fecha;
     private String horario;
 
-
+    
     //todo 1)Una lista con fechas por dias por ejemplo de lunes a viernes cuando se agrega un nuevo turno
     // se elimina del lista y añade al atributo fecha de la clase turno.
-
 
     public Turno(Cliente cliente, Factura factura, LocalDate fecha, String horario) {
         this.cliente = cliente;
@@ -21,6 +20,7 @@ public class Turno extends ListaCliente implements Serializable{
     }
 
     public Turno() {
+
     }
 
     public Cliente getCliente() {

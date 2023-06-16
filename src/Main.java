@@ -29,7 +29,6 @@ public class Main {
 //        Cliente cliente4 = new Cliente("Kevin", "Tolosa", "2234567899");
 
 
-        ListaCliente lista = new ListaCliente();
 //        ListaTurno listaTurno = new ListaTurno();
 
         // lista.agregarClientesALaLista();
@@ -86,6 +85,8 @@ Asi se hace sin la clase
 
 
 //MAPA
+        ListaCliente lista = new ListaCliente();
+
         LocalDate fecha = LocalDate.of(2023, 06, 01);
         int ultimoDiaDelMes = fecha.lengthOfMonth();
         List<LocalDate> fechasDelMes = new ArrayList<>();
@@ -104,8 +105,9 @@ Asi se hace sin la clase
         mapita.recorrerElMapitaYVerLasKeys();
         
         mapita.agregarTurnoAMapa(LocalDate.of(2023, 06, 06), lista);
-        mapita.recorrerElMapitaYMostrar();
         lista.mostrarListaClientes();
+        mapita.recorrerElMapitaYMostrar();
+
 
 //        mapita.agregarDatoSinRepetir(LocalDate.of(1979, 01, 01), new ListaTurno());
 //        Scanner scanner = new Scanner(System.in);

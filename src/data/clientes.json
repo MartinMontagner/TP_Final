@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "Julian",
+    "apellido": "Zapata",
+    "idCliente": 1,
+    "turnosAcumulados": 40,
+    "telefono": "2234567899"
+  },
+  {
+    "nombre": "Martin",
+    "apellido": "Montagner",
+    "idCliente": 2,
+    "turnosAcumulados": 40,
+    "telefono": "2234567899"
+  },
+  {
+    "nombre": "Franco",
+    "apellido": "Guidi",
+    "idCliente": 3,
+    "turnosAcumulados": 40,
+    "telefono": "2234567899"
+  },
+  {
+    "nombre": "Kevin",
+    "apellido": "Tolosa",
+    "idCliente": 4,
+    "turnosAcumulados": 40,
+    "telefono": "2234567899"
+  }
+]

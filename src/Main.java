@@ -1,37 +1,46 @@
+import Model.Cliente;
+import Model.ListaCliente;
+import View.MainFrame;
+import View.frame;
+import com.google.gson.Gson;
+
+import javax.swing.*;
 import java.io.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
+
+        SwingUtilities.invokeLater(MainFrame::new);
+
+
+
         //todo usa como key de los mapas las fechas y lo value turnos
         // usa try y catch y los swtich
         // que se puede crear un cliente elegir el tipo de servicio el cual muestre su precio
         // y duracion etc usa todos los metodos
         // ordena las clases en carpetas asi es todos mas legible
 //
-       // ServicioManicura servicioMano = new ServicioManicura(2.0, TipoDeManicura.GEL);
-//        ServicioPedicura servicioPie = new ServicioPedicura(2.0, TipoDePedicura.PREMIUM);
+       // Model.ServicioManicura servicioMano = new Model.ServicioManicura(2.0, Model.TipoDeManicura.GEL);
+//        Model.ServicioPedicura servicioPie = new Model.ServicioPedicura(2.0, Model.TipoDePedicura.PREMIUM);
 //
-        //Factura factura1 = new Factura(MedioPago.EFECTIVO, servicioMano);
+        //Model.Factura factura1 = new Model.Factura(Model.MedioPago.EFECTIVO, servicioMano);
         //factura1.toString();
-//        Factura factura2 = new Factura(MedioPago.TARJETA, servicioPie);
+//        Model.Factura factura2 = new Model.Factura(Model.MedioPago.TARJETA, servicioPie);
 //
-//        Cliente cliente1 = new Cliente("Julian", "Zapata", "2234567899");
-//        Cliente cliente2 = new Cliente("Martin", "Montagner", "2234567899");
+//        Model.Cliente cliente1 = new Model.Cliente("Julian", "Zapata", "2234567899");
+//        Model.Cliente cliente2 = new Model.Cliente("Martin", "Montagner", "2234567899");
         Cliente cliente3 = new Cliente("f", "Guidi", "2234567899");
-//        Cliente cliente4 = new Cliente("Kevin", "Tolosa", "2234567899");
+//        Model.Cliente cliente4 = new Model.Cliente("Kevin", "Tolosa", "2234567899");
 
 
-//        ListaTurno listaTurno = new ListaTurno();
+//        Model.ListaTurno listaTurno = new Model.ListaTurno();
 
         // lista.agregarClientesALaLista();
 
         // lista.mostrarListaClientes();
         //listaTurno.agregarTurnoALaLista(lista);
-        // ArchivoJsonGenericos<ListaCliente> archivoJsonGenericos = new ArchivoJsonGenericos<>(lista);
+        // Model.ArchivoJsonGenericos<Model.ListaCliente> archivoJsonGenericos = new Model.ArchivoJsonGenericos<>(lista);
 
         //  archivoJsonGenericos.escribirArchivo(lista);
         // archivoJsonGenericos.leerArchivo(lista);
@@ -46,25 +55,25 @@ Asi se hace sin la clase
 //        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 //        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(archivoAEscribir + ".json"));
 //
-//        gson.toJson(lista, ListaCliente.class, bufferedWriter);
+//        gson.toJson(lista, Model.ListaCliente.class, bufferedWriter);
 //        bufferedWriter.close();
 
 //        BufferedReader bufferedReader = new BufferedReader(new FileReader(archivoAEscribir + ".json"));
 //
-//        ListaCliente listaExterna = gson.fromJson(bufferedReader, ListaCliente.class);
+//        Model.ListaCliente listaExterna = gson.fromJson(bufferedReader, Model.ListaCliente.class);
 //        System.out.println(listaExterna);*/
 
 //TURNOS
-        ListaCliente lista = new ListaCliente();
+ ///       ListaCliente lista = new ListaCliente();
         //lista.agregarClienteUnico(cliente3);
-    MainFrame myObject = new MainFrame();
-    for(int i=0;i<3;i++) {
-        myObject.pedirUnTurno(lista);
-    }
+ //   MainFrame myObject = new MainFrame();
+ //   for(int i=0;i<3;i++) {
+ //       myObject.pedirUnTurno(lista);
+ //   }
     
-//        Turno turno2 = new Turno(cliente4, factura2, LocalDate.now(),"T");
-//        Turno turno3 = new Turno(cliente1, factura2, LocalDate.now(),"T");
-//        Turno turno4 = new Turno(cliente2, factura2, LocalDate.now(),"N");
+//        Model.Turno turno2 = new Model.Turno(cliente4, factura2, LocalDate.now(),"T");
+//        Model.Turno turno3 = new Model.Turno(cliente1, factura2, LocalDate.now(),"T");
+//        Model.Turno turno4 = new Model.Turno(cliente2, factura2, LocalDate.now(),"N");
 //        turno1.descuentoDeTurnos();
 //        System.out.println(turno1.toString());
 
@@ -77,7 +86,7 @@ Asi se hace sin la clase
 //        }
 
 //        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("clientes.json"));
-//        Gson gson = new Gson();
+        //Gson gson = new Gson();
 //        String jsonAsString = gson.toJson(clientes);
 //        gson.toJson(jsonAsString, String.class, bufferedWriter);
 //
@@ -93,7 +102,7 @@ Asi se hace sin la clase
 //             LocalDate fecha2 =(LocalDate.of(fechaTurnoAnio, fechaTurnoMes, fechaTurnoDia));
 ////MAPA
 //
-            //Turno turno1 = new Turno(cliente3, factura1, LocalDate.now(), "M");
+            //Model.Turno turno1 = new Model.Turno(cliente3, factura1, LocalDate.now(), "M");
 
             //LocalDate fecha = LocalDate.of(2023, 06, 01);
 //            int ultimoDiaDelMes = fecha2.lengthOfMonth();
@@ -105,9 +114,9 @@ Asi se hace sin la clase
 //            }
 //
 //
-//            MapaGenerico<LocalDate, ListaTurno> mapita = new MapaGenerico<>();
+//            Model.MapaGenerico<LocalDate, Model.ListaTurno> mapita = new Model.MapaGenerico<>();
 //            for (LocalDate localDate : fechasDelMes) {
-//                mapita.agregarDatoSobreescribiendo(localDate, new ListaTurno());
+//                mapita.agregarDatoSobreescribiendo(localDate, new Model.ListaTurno());
 //            }
 //            System.out.println("Estos son los dias con los turnos disponibles");
 //            mapita.recorrerElMapitaYVerLasKeys();
@@ -120,7 +129,7 @@ Asi se hace sin la clase
 //            }
 
 
-//        mapita.agregarDatoSinRepetir(LocalDate.of(1979, 01, 01), new ListaTurno());
+//        mapita.agregarDatoSinRepetir(LocalDate.of(1979, 01, 01), new Model.ListaTurno());
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Ingrese fecha del turno DD/MM/AAAA: ");
 //        Integer fechaTurnoDia = scanner.nextInt();

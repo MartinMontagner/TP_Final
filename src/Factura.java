@@ -43,8 +43,8 @@ public class Factura implements Serializable  {
     @Override
     public String toString() {
         return "Factura{" + service +
-                ", con un precio de=" + precio +
-                ", pagado con= " + medioPago + "}";
+                ", con un precio de " + precio +
+                ", pagado con " + medioPago + "}";
     }
     public Double calcularPrecioFactura() {
 

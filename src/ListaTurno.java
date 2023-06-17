@@ -41,6 +41,7 @@ public class ListaTurno{
         if (c != null) {
             turno.setCliente(c);
         } else {
+            System.out.println("No se encontro el cliente, por favor ingrese los datos para crear un nuevo cliente");
            turno.setCliente(listaCliente.crearCliente());
         }
         //ServicioManicura servicioMano = new ServicioManicura(2.0, TipoDeManicura.GEL);
@@ -117,20 +118,19 @@ public class ListaTurno{
         if (listaTurno.size() < 3)
         {
             turno = crearTurno(listaCliente);
-           // if (verificacionDisponible(turno)) {
+            if (!verificacionDisponible(turno)) {
                 listaTurno.add(turno);
                 return true;
-          //  }
+            }
         }
         return false;
     }
 
     //MANIANA TARDE NOCHE VERIFICACION
-    public Boolean verificacionDisponible(Turno turno) {
-        if (listaTurno.contains(turno.getHorario())) {
-            return true;
-        }
-        return false;
+    public boolean verificacionDisponible(Turno turno) {
+        return listaTurno.stream().anyMatch(t -> t.equals(turno));
     }
+
+
 
 }

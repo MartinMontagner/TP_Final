@@ -2,6 +2,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -56,8 +57,11 @@ Asi se hace sin la clase
 //TURNOS
         ListaCliente lista = new ListaCliente();
         //lista.agregarClienteUnico(cliente3);
-
-
+    MainFrame myObject = new MainFrame();
+    for(int i=0;i<3;i++) {
+        myObject.pedirUnTurno(lista);
+    }
+    
 //        Turno turno2 = new Turno(cliente4, factura2, LocalDate.now(),"T");
 //        Turno turno3 = new Turno(cliente1, factura2, LocalDate.now(),"T");
 //        Turno turno4 = new Turno(cliente2, factura2, LocalDate.now(),"N");
@@ -80,32 +84,41 @@ Asi se hace sin la clase
 //        bufferedWriter.newLine();
 //        bufferedWriter.close();
 
+//            Scanner scanner = new Scanner(System.in);
+//            System.out.print("Ingrese fecha del turno DD/MM/AAAA: ");
+//            Integer fechaTurnoDia = scanner.nextInt();
+//            Integer fechaTurnoMes = scanner.nextInt();
+//            Integer fechaTurnoAnio = scanner.nextInt();
+//            scanner.nextLine();
+//             LocalDate fecha2 =(LocalDate.of(fechaTurnoAnio, fechaTurnoMes, fechaTurnoDia));
+////MAPA
+//
+            //Turno turno1 = new Turno(cliente3, factura1, LocalDate.now(), "M");
 
-//MAPA
-        //  ListaCliente lista = new ListaCliente();
-        //Turno turno1 = new Turno(cliente3, factura1, LocalDate.now(), "M");
+            //LocalDate fecha = LocalDate.of(2023, 06, 01);
+//            int ultimoDiaDelMes = fecha2.lengthOfMonth();
+//            List<LocalDate> fechasDelMes = new ArrayList<>();
+//
+//            for (int dia = 1; dia <= ultimoDiaDelMes; dia++) {
+//                LocalDate fechaActual = fecha2.withDayOfMonth(dia);
+//                fechasDelMes.add(fechaActual);
+//            }
+//
+//
+//            MapaGenerico<LocalDate, ListaTurno> mapita = new MapaGenerico<>();
+//            for (LocalDate localDate : fechasDelMes) {
+//                mapita.agregarDatoSobreescribiendo(localDate, new ListaTurno());
+//            }
+//            System.out.println("Estos son los dias con los turnos disponibles");
+//            mapita.recorrerElMapitaYVerLasKeys();
+//
+//
+//            for (int i = 0; i < 2; i++) {
+//                mapita.agregarTurnoAMapa(LocalDate.of(2023, 06, 06), lista);
+//                //lista.mostrarListaClientes();
+//                mapita.recorrerElMapitaYMostrar();
+//            }
 
-        LocalDate fecha = LocalDate.of(2023, 06, 01);
-        int ultimoDiaDelMes = fecha.lengthOfMonth();
-        List<LocalDate> fechasDelMes = new ArrayList<>();
-
-        for (int dia = 1; dia <= ultimoDiaDelMes; dia++) {
-            LocalDate fechaActual = fecha.withDayOfMonth(dia);
-            fechasDelMes.add(fechaActual);
-        }
-
-
-        MapaGenerico<LocalDate, ListaTurno> mapita = new MapaGenerico<>();
-        for (LocalDate localDate : fechasDelMes) {
-            mapita.agregarDatoSobreescribiendo(localDate, new ListaTurno());
-        }
-
-        //   mapita.recorrerElMapitaYVerLasKeys();
-        for(int i=0; i<2;i++) {
-            mapita.agregarTurnoAMapa(LocalDate.of(2023, 06, 06), lista);
-            //lista.mostrarListaClientes();
-            mapita.recorrerElMapitaYMostrar();
-        }
 
 //        mapita.agregarDatoSinRepetir(LocalDate.of(1979, 01, 01), new ListaTurno());
 //        Scanner scanner = new Scanner(System.in);

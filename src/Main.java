@@ -11,11 +11,11 @@ public class Main {
         // y duracion etc usa todos los metodos
         // ordena las clases en carpetas asi es todos mas legible
 //
-        ServicioManicura servicioMano = new ServicioManicura(2.0, TipoDeManicura.GEL);
+       // ServicioManicura servicioMano = new ServicioManicura(2.0, TipoDeManicura.GEL);
 //        ServicioPedicura servicioPie = new ServicioPedicura(2.0, TipoDePedicura.PREMIUM);
 //
-        Factura factura1 = new Factura(MedioPago.EFECTIVO, servicioMano);
-        factura1.toString();
+        //Factura factura1 = new Factura(MedioPago.EFECTIVO, servicioMano);
+        //factura1.toString();
 //        Factura factura2 = new Factura(MedioPago.TARJETA, servicioPie);
 //
 //        Cliente cliente1 = new Cliente("Julian", "Zapata", "2234567899");
@@ -83,7 +83,7 @@ Asi se hace sin la clase
 
 //MAPA
         //  ListaCliente lista = new ListaCliente();
-        Turno turno1 = new Turno(cliente3, factura1, LocalDate.now(), "M");
+        //Turno turno1 = new Turno(cliente3, factura1, LocalDate.now(), "M");
 
         LocalDate fecha = LocalDate.of(2023, 06, 01);
         int ultimoDiaDelMes = fecha.lengthOfMonth();
@@ -101,11 +101,11 @@ Asi se hace sin la clase
         }
 
         //   mapita.recorrerElMapitaYVerLasKeys();
-
-        mapita.agregarTurnoAMapa(LocalDate.of(2023, 06, 06), lista);
-        //lista.mostrarListaClientes();
-        mapita.recorrerElMapitaYMostrar();
-
+        for(int i=0; i<2;i++) {
+            mapita.agregarTurnoAMapa(LocalDate.of(2023, 06, 06), lista);
+            //lista.mostrarListaClientes();
+            mapita.recorrerElMapitaYMostrar();
+        }
 
 //        mapita.agregarDatoSinRepetir(LocalDate.of(1979, 01, 01), new ListaTurno());
 //        Scanner scanner = new Scanner(System.in);
@@ -122,4 +122,5 @@ Asi se hace sin la clase
 //        mapita.agregarTurnoAMapa(turno4, LocalDate.now());
         //  mapita.recorrerElMapitaYMostrar();
     }
-}
+}/// poner en las keys en vez de no hay turnos que la lista esta disponible para agregar turnos y cuando la lista este completa mostrar no disponibles (veamoslo)
+//agregar el servicio cuando se muestra el turno

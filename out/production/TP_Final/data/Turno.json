@@ -1,0 +1,11 @@
+{
+  "listaDeClientes": [
+    {
+      "nombre": "martin",
+      "apellido": "montag",
+      "idCliente": 1,
+      "turnosAcumulados": 40,
+      "telefono": "465"
+    }
+  ]
+}

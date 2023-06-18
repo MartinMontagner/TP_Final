@@ -5,19 +5,20 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class ClientesDetails extends JPanel {
+public class TurnosDetails extends JPanel {
 
-    private JTable clientesTable;
-    private String[] clientesTableColumn = {"NOMBRE", "APELLIDO", "TELÉFONO", "ID"};
+    private JTable turnosTable;
+    private String[] turnosTableColumn = {"FECHA", "HORA", "SERVICIO", "CLIENTE"};
+
     private JButton backButton;
 
-    public ClientesDetails() {
+    public TurnosDetails() {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         JToolBar toolBar = new JToolBar();
-        clientesTable = new JTable();
+        turnosTable = new JTable();
 
-        JScrollPane userTableScroll = new JScrollPane(clientesTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+        JScrollPane userTableScroll = new JScrollPane(turnosTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         backButton = new JButton("SALIR");
         add(toolBar);
@@ -28,9 +29,9 @@ public class ClientesDetails extends JPanel {
     }
 
     // carga table desde database
-    public void getClientes(Object[] objects) {
-        DefaultTableModel defaultTableModel = (DefaultTableModel) clientesTable.getModel();
-        defaultTableModel.setColumnIdentifiers(clientesTableColumn);
+    public void getTurnos(Object[] objects) {
+        DefaultTableModel defaultTableModel = (DefaultTableModel) turnosTable.getModel();
+        defaultTableModel.setColumnIdentifiers(turnosTableColumn);
         int i = 0;
         while(i < objects.length) {
             String row = objects[i].toString().trim();

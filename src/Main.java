@@ -1,6 +1,5 @@
 import Model.Cliente;
 import Model.ListaCliente;
-import View.MainFrame;
 import View.frame;
 import com.google.gson.Gson;
 
@@ -10,8 +9,8 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-
-        SwingUtilities.invokeLater(MainFrame::new);
+        //USA THREAD NUEVO DE AWT PARA LA VIEW
+        SwingUtilities.invokeLater(frame::new);
 
 
 

@@ -5,31 +5,30 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.util.ArrayList;
 
-public class ClientesDatabase {
+public class TurnosDatabase {
 
-    private ArrayList<Cliente> listaClientes;
+    private ArrayList<Turno> listaTurnos;
 
-    public ClientesDatabase() {
-        listaClientes = new ArrayList<>();
+    public TurnosDatabase() {
+        listaTurnos = new ArrayList<>();
     }
 
-    // agrega cliente a collection
-    public void agregarCliente(Cliente cliente) {
-        listaClientes.add(cliente);
+    public void agregarTurno(Turno turno) {
+        listaTurnos.add(turno);
     }
 
     // guarda cliente a database
-    public void guardarCliente(File file) {
+    public void guardarTurno(File file) {
         try {
-            // modelo cliente
-            Cliente cliente;
+
+            Turno turno;
             String save_data = "";
 
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
             int i = 0;
-            while( i < listaClientes.size()) {
-                cliente = listaClientes.get(i);
-                save_data=cliente.toString();
+            while( i < listaTurnos.size()) {
+                turno = listaTurnos.get(i);
+                save_data=turno.toString();
                 i++;
             }
             bufferedWriter.write(save_data);
@@ -40,8 +39,8 @@ public class ClientesDatabase {
         }
     }
 
-    // lee cliente de database
-    public Object[] cargaCliente(File file) {
+
+    public Object[] cargaTurno(File file) {
         Object[] objects;
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));

@@ -11,7 +11,7 @@ import javax.swing.*;
 import java.io.File;
 
 public class ClienteController {
-    private String databaseFile = "src\\data\\clientesNew.json";
+    private String databaseFile = "src\\data\\clientesNew.txt";
     private ClientesDatabase database;
     private ClientesForm form;
     private ClientesDetails clientesDetails;

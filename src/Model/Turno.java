@@ -9,17 +9,17 @@ import java.time.LocalDate;
 public class Turno implements Serializable {
     private Cliente cliente;
     private Factura factura;
-    //private LocalDate fecha;
+    private String fecha;
     private String horario;
 
 
     //todo 1)Una lista con fechas por dias por ejemplo de lunes a viernes cuando se agrega un nuevo turno
     // se elimina del lista y añade al atributo fecha de la clase turno.
 
-    public Turno(Cliente cliente, Factura factura, LocalDate fecha, String horario) {
+    public Turno(Cliente cliente, Factura factura, String fecha, String horario) {
         this.cliente = cliente;
         this.factura = factura;
-        //  this.fecha = fecha;
+        this.fecha = fecha;
         this.horario = horario;
     }
 
@@ -42,13 +42,13 @@ public class Turno implements Serializable {
         this.factura = factura;
     }
 
-//    public LocalDate getFecha() {
-//        return fecha;
-//    }
-//
-//    public void setFecha(LocalDate fecha) {
-//        this.fecha = fecha;
-//    }
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
     public String getHorario() {
         return horario;

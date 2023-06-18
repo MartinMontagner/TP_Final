@@ -67,27 +67,26 @@ public class Cliente implements Serializable {
         totalClientes++;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Model.Cliente{" +
-//                "nombre='" + nombre + '\'' +
-//                ", apellido='" + apellido + '\'' +
-//                ", idCliente=" + idCliente +
-//                ", telefono='" + telefono + '\'' +
-//                '}';
-//    }
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("╔══════════════════════════════════╗\n");
-        sb.append("║      Información del Model.Cliente     ║\n");
-        sb.append("╟──────────────────────────────────╢\n");
-        sb.append("║ Nombre: ").append(nombre).append(formatSpaces(nombre, 25)).append("║\n");
-        sb.append("║ Apellido: ").append(apellido).append(formatSpaces(apellido, 23)).append("║\n");
-        sb.append("║ ID Model.Cliente:").append(idCliente).append(formatSpaces(idCliente.toString(), 22)).append("║\n");
-        sb.append("╚══════════════════════════════════╝\n");
-        return sb.toString();
+        return
+                nombre +
+                ", " +apellido +
+                ", " + telefono +
+                ", " + idCliente;
     }
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("╔══════════════════════════════════╗\n");
+//        sb.append("║      Información del Model.Cliente     ║\n");
+//        sb.append("╟──────────────────────────────────╢\n");
+//        sb.append("║ Nombre: ").append(nombre).append(formatSpaces(nombre, 25)).append("║\n");
+//        sb.append("║ Apellido: ").append(apellido).append(formatSpaces(apellido, 23)).append("║\n");
+//        sb.append("║ ID Model.Cliente:").append(idCliente).append(formatSpaces(idCliente.toString(), 22)).append("║\n");
+//        sb.append("╚══════════════════════════════════╝\n");
+//        return sb.toString();
+//    }
 
     private String formatSpaces(String text, int spaces) {
         StringBuilder sb = new StringBuilder();

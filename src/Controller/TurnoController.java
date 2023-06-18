@@ -33,7 +33,7 @@ public class TurnoController {
                         JOptionPane.ERROR_MESSAGE);
                 return;
             } else if(apellido.isEmpty()) {
-                JOptionPane.showMessageDialog(this.form, "Ingrese Horario.", "Error",
+                JOptionPane.showMessageDialog(this.form, "Ingrese Hora.", "Error",
                         JOptionPane.ERROR_MESSAGE);
                 return;
 

@@ -4,12 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Locale;
 
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePicker;
 import com.github.lgooddatepicker.components.TimePickerSettings;
+import com.github.lgooddatepicker.optionalusertools.PickerUtilities;
+import com.github.lgooddatepicker.optionalusertools.TimeVetoPolicy;
+
 
 public class TurnosForm extends JPanel {
 
@@ -17,14 +21,25 @@ public class TurnosForm extends JPanel {
     private TimePicker horaPicker;
     private JButton addButton;
     private JButton viewButton;
+    private static class TiempoPermitido implements TimeVetoPolicy {
+
+        @Override
+        public boolean isTimeAllowed(LocalTime time) {
+            // Only allow times from 9a to 5p, inclusive.
+            return PickerUtilities.isLocalTimeInRange(
+                    time, LocalTime.of(9, 00), LocalTime.of(17, 00), true);
+        }
+
+    }
 
     public TurnosForm() {
 
+
         JLabel fechaLabel = new JLabel("Fecha: ");
-        JLabel horarioLabel = new JLabel("Apellido: ");
+        JLabel horarioLabel = new JLabel("Hora: ");
         JLabel clienteLabel = new JLabel("Cliente: ");
 
-        DatePickerSettings fechaSettings = new DatePickerSettings(Locale.getDefault());
+        DatePickerSettings fechaSettings = new DatePickerSettings();
         fechaPicker = new DatePicker(fechaSettings);
         TimePickerSettings horaSettings = new TimePickerSettings(Locale.getDefault());
         horaPicker = new TimePicker(horaSettings);
@@ -48,14 +63,29 @@ public class TurnosForm extends JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
 
+        add(fechaLabel, gridBagConstraints);
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+
+        fechaSettings.setLocale(new Locale("es", "ES"));
         fechaSettings.setDateRangeLimits(LocalDate.now(), LocalDate.MAX);
         fechaSettings.setEnableMonthMenu(true);
+        fechaSettings.setVisibleClearButton(false);
         add(fechaPicker, gridBagConstraints);
 
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
 
+        add(horarioLabel, gridBagConstraints);
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+
+        horaSettings.setVetoPolicy(new TiempoPermitido());
         add(horaPicker, gridBagConstraints);
 
         gridBagConstraints.gridx = 0;
@@ -70,6 +100,7 @@ public class TurnosForm extends JPanel {
 
         add(viewButton, gridBagConstraints);
     }
+
 
     public String getFecha() {
         return fechaPicker.getText();

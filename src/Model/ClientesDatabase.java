@@ -1,13 +1,25 @@
 package Model;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class ClientesDatabase {
 
     private ArrayList<Cliente> listaClientes;
+
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(ArrayList<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
 
     public ClientesDatabase() {
         listaClientes = new ArrayList<>();
@@ -55,5 +67,35 @@ public class ClientesDatabase {
         return null;
     }
 
+    public void guardarArrayClientesJson(File file) {
+        try {
+            // modelo cliente
+            Cliente cliente;
+            String save_data = "";
+
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            save_data = gson.toJson(listaClientes);
+            bufferedWriter.write(save_data);
+
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Cliente> cargarArrayListDesdeJson(File file){
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+            Type type = new TypeToken<ArrayList<Cliente>>() {}.getType();
+            this.listaClientes = new Gson().fromJson(bufferedReader, type);
+            bufferedReader.close();
+            return listaClientes;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        };
+            return null;
+    }
 
 }

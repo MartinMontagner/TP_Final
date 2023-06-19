@@ -5,8 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Locale;
 
+import Model.Cliente;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePicker;
@@ -21,11 +23,13 @@ public class TurnosForm extends JPanel {
     private TimePicker horaPicker;
     private JButton addButton;
     private JButton viewButton;
+    private JList<String> listadoClientes;
+
     private static class TiempoPermitido implements TimeVetoPolicy {
 
         @Override
         public boolean isTimeAllowed(LocalTime time) {
-            // Only allow times from 9a to 5p, inclusive.
+            // admite tiempo de 9am a 5pm.
             return PickerUtilities.isLocalTimeInRange(
                     time, LocalTime.of(9, 00), LocalTime.of(17, 00), true);
         }
@@ -43,6 +47,9 @@ public class TurnosForm extends JPanel {
         fechaPicker = new DatePicker(fechaSettings);
         TimePickerSettings horaSettings = new TimePickerSettings(Locale.getDefault());
         horaPicker = new TimePicker(horaSettings);
+
+        listadoClientes= new JList<>();
+        listadoClientes.setVisible(true);
 
         addButton = new JButton("Agregar Turno");
         addButton.setPreferredSize(new Dimension(278, 40));
@@ -90,12 +97,25 @@ public class TurnosForm extends JPanel {
 
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+
+        add(clienteLabel, gridBagConstraints);
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+
+
+        add(listadoClientes, gridBagConstraints);
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.insets = buttonInset;
 
         add(addButton, gridBagConstraints);
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.insets = buttonInset;
 
         add(viewButton, gridBagConstraints);
@@ -110,12 +130,18 @@ public class TurnosForm extends JPanel {
     }
    // public String getCliente() {return fonoField.getText();}
 
+    public void verTurnos(ActionListener actionListener) {
+        viewButton.addActionListener(actionListener);
+    }
+
     public void submitTurno(ActionListener actionListener) {
         addButton.addActionListener(actionListener);
     }
 
-    public void verTurnos(ActionListener actionListener) {
-        viewButton.addActionListener(actionListener);
+    public void listarClientes(ArrayList<Cliente> clientes) {
+        listadoClientes=new JList<>(clientes.toArray(new String[clientes.size()]));
     }
+
+
 
 }

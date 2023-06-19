@@ -9,7 +9,6 @@ public class ClientesForm extends JPanel {
     private JTextField firstnameField;
     private JTextField lastNameField;
     private JTextField fonoField;
-
     private JButton addButton;
     private JButton viewButton;
 

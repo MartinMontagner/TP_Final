@@ -1,13 +1,18 @@
 import Model.Cliente;
+import Model.ClientesDatabase;
 import Model.ListaCliente;
 import View.frame;
 import com.google.gson.Gson;
 
 import javax.swing.*;
 import java.io.*;
+import java.util.ArrayList;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
+
 
         //USA THREAD NUEVO DE AWT PARA LA VIEW
         SwingUtilities.invokeLater(frame::new);
@@ -28,9 +33,20 @@ public class Main {
 //        Model.Factura factura2 = new Model.Factura(Model.MedioPago.TARJETA, servicioPie);
 //
 //        Model.Cliente cliente1 = new Model.Cliente("Julian", "Zapata", "2234567899");
-//        Model.Cliente cliente2 = new Model.Cliente("Martin", "Montagner", "2234567899");
-        Cliente cliente3 = new Cliente("f", "Guidi", "2234567899");
+//       Model.Cliente cliente2 = new Model.Cliente("Martin", "Montagner", "2234567899");
+//        Cliente cliente3 = new Cliente("f", "Guidi", "2234567899");
 //        Model.Cliente cliente4 = new Model.Cliente("Kevin", "Tolosa", "2234567899");
+//
+//        ClientesDatabase database = new ClientesDatabase();
+////       database.setListaClientes(new ArrayList<Cliente>());
+////       database.agregarCliente(cliente1);
+////       database.agregarCliente(cliente2);
+////       database.agregarCliente(cliente3);
+////        database.agregarCliente(cliente4);
+//
+////      database.guardarArrayClientesJson(new File("clientesJsonNEW.json"));
+//            database.cargarArrayListDesdeJson(new File("clientesJsonNEW.json"));
+//        System.out.println(database.getListaClientes());
 
 
 //        Model.ListaTurno listaTurno = new Model.ListaTurno();

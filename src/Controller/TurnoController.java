@@ -7,19 +7,25 @@ import View.TurnosForm;
 
 import javax.lang.model.type.NullType;
 import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.io.File;
 
 public class TurnoController {
-    private String databaseFile = "src\\data\\turnosNew.txt";
-    private TurnosDatabase database;
+    private String turnosFile = "src\\data\\turnosNew.txt";
+    private String clientesFile = "src\\data\\clientesNew.txt";
+    private String clientesJson = "src\\data\\clientesNew.json";
+    private TurnosDatabase turnosDatabase;
+    private ClientesDatabase clientesDatabase;
     private TurnosForm form;
     private TurnosDetails turnosDetails;
-    private ClientesDetails clientesDetails;
 
     public TurnoController(TurnosForm form, TurnosDetails turnosDetails) {
-        this.database = new TurnosDatabase();
+        this.turnosDatabase = new TurnosDatabase();
+        this.clientesDatabase = new ClientesDatabase();
         this.form = form;
         this.turnosDetails = turnosDetails;
+
+        this.clientesDatabase.cargarArrayListDesdeJson(new File(clientesJson));
 
         this.form.submitTurno(e -> {
             String fecha = this.form.getFecha().trim();
@@ -52,9 +58,12 @@ public class TurnoController {
           //  this.form.reset(true);
         });
 
-        // carga clientes
+
+
+
+        // carga turno
         this.form.verTurnos(e -> {
-            this.turnosDetails.getTurnos(this.database.cargaTurno(new File(databaseFile)));
+            this.turnosDetails.getTurnos(this.turnosDatabase.cargaTurno(new File(turnosFile)));
         });
     }
 }

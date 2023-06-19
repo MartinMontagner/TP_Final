@@ -1,9 +1,12 @@
 package View;
 
+import Model.Cliente;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ClientesDetails extends JPanel {
 
@@ -34,6 +37,18 @@ public class ClientesDetails extends JPanel {
         int i = 0;
         while(i < objects.length) {
             String row = objects[i].toString().trim();
+            String[] rows = row.split(",");
+            defaultTableModel.addRow(rows);
+            i++;
+        }
+    }
+
+    public void getClientesJson(ArrayList<Cliente> lista) {
+        DefaultTableModel defaultTableModel = (DefaultTableModel) clientesTable.getModel();
+        defaultTableModel.setColumnIdentifiers(clientesTableColumn);
+        int i = 0;
+        while(i < lista.size()) {
+            String row = lista.get(i).toString().trim();
             String[] rows = row.split(",");
             defaultTableModel.addRow(rows);
             i++;

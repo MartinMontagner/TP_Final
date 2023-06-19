@@ -12,6 +12,7 @@ import java.io.File;
 
 public class ClienteController {
     private String databaseFile = "src\\data\\clientesNew.txt";
+    private String jsonFile = "src\\data\\clientesNEW.json";
     private ClientesDatabase database;
     private ClientesForm form;
     private ClientesDetails clientesDetails;
@@ -20,6 +21,8 @@ public class ClienteController {
         this.database = new ClientesDatabase();
         this.form = form;
         this.clientesDetails = clientesDetails;
+
+        this.database.cargarArrayListDesdeJson(new File(jsonFile));
 
         // pasa cliente
         this.form.submitClientes(e -> {
@@ -43,13 +46,19 @@ public class ClienteController {
             }
 
             this.database.agregarCliente(new Cliente(nombre, apellido, telefono));
-            this.database.guardarCliente(new File(databaseFile));
+
+            //this.database.guardarCliente(new File(databaseFile));
+
+            this.database.guardarArrayClientesJson(new File(jsonFile));
             this.form.reset(true);
         });
 
         // carga clientes
         this.form.verClientes(e -> {
-            this.clientesDetails.getClientes(this.database.cargaCliente(new File(databaseFile)));
+           // this.clientesDetails.getClientes(this.database.cargaCliente(new File(databaseFile)));
+            this.clientesDetails.getClientesJson(this.database.cargarArrayListDesdeJson(new File(jsonFile)));
         });
+
+
     }
 }

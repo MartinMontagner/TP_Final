@@ -1,5 +1,7 @@
 
 import View.frame;
+import View.intro;
+
 
 import javax.swing.*;
 import java.io.*;
@@ -11,10 +13,13 @@ public class Main {
 
 
         //USA THREAD NUEVO DE AWT PARA LA VIEW
+        new intro();
         SwingUtilities.invokeLater(frame::new);
 
 
     }
+
+
 }
 
 

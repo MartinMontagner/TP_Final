@@ -183,6 +183,29 @@
       },
       "fecha": "25 de junio de 2023",
       "horario": "1:00pm"
+    },
+    "21 de junio de 2023 12:00pm": {
+      "cliente": {
+        "nombre": "Franco",
+        "apellido": "Guidi",
+        "idCliente": "3",
+        "turnosAcumulados": 40,
+        "telefono": "2234567899"
+      },
+      "factura": {
+        "precio": 665.0,
+        "medioPago": "EFECTIVO",
+        "pedicura": {
+          "tipo": "ESTANDAR",
+          "duracion": 30.0
+        },
+        "manicura": {
+          "tipoDeManicura": "GEL",
+          "duracion": 30.0
+        }
+      },
+      "fecha": "21 de junio de 2023",
+      "horario": "12:00pm"
     }
   }
 }

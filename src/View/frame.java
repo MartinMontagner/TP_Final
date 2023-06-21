@@ -3,16 +3,21 @@ package View;
 import Controller.ClienteController;
 import Controller.TurnoController;
 
+import javax.imageio.ImageIO;
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class frame extends JFrame {
 
     private CardLayout cardLayout;
 
-    public frame() {
+    public frame()  {
         super("JP+ NAIL SALON");
+
         cardLayout = new CardLayout();
         setLayout(cardLayout);
 
@@ -53,4 +58,6 @@ public class frame extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
+
+
 }

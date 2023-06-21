@@ -70,13 +70,6 @@
     "telefono": "2233232323"
   },
   {
-    "nombre": "Homero",
-    "apellido": "Chino",
-    "idCliente": "1",
-    "turnosAcumulados": 40,
-    "telefono": "2230000000"
-  },
-  {
     "nombre": "Thomas",
     "apellido": "Shelby",
     "idCliente": "f2ca786",
@@ -96,5 +89,12 @@
     "idCliente": "1c49407",
     "turnosAcumulados": 40,
     "telefono": "2231478523"
+  },
+  {
+    "nombre": "Homero",
+    "apellido": "Chino",
+    "idCliente": "cf454ba",
+    "turnosAcumulados": 40,
+    "telefono": "2230000000"
   }
 ]

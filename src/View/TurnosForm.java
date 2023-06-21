@@ -23,7 +23,6 @@ public class TurnosForm extends JPanel {
     private TimePicker horaPicker;
     private JButton addButton;
     private JButton viewButton;
-    private JList<String> listadoClientes;
 
     private static class TiempoPermitido implements TimeVetoPolicy {
 
@@ -38,24 +37,22 @@ public class TurnosForm extends JPanel {
 
     public TurnosForm() {
 
-
         JLabel fechaLabel = new JLabel("Fecha: ");
         JLabel horarioLabel = new JLabel("Hora: ");
         JLabel clienteLabel = new JLabel("Cliente: ");
+        JLabel manicuraLabel = new JLabel("Servicio de manicura: ");
+        JLabel pedicuraLabel = new JLabel("Servicio de pedicura: ");
+        JLabel pagosLabel = new JLabel("Medio de pago: ");
 
         DatePickerSettings fechaSettings = new DatePickerSettings();
         fechaPicker = new DatePicker(fechaSettings);
         TimePickerSettings horaSettings = new TimePickerSettings(Locale.getDefault());
         horaPicker = new TimePicker(horaSettings);
 
-        listadoClientes= new JList<>();
-        listadoClientes.setVisible(true);
-
         addButton = new JButton("Agregar Turno");
         addButton.setPreferredSize(new Dimension(278, 40));
         viewButton = new JButton("Ver todos los Turnos");
         viewButton.setPreferredSize(new Dimension(278, 40));
-
 
         Insets fieldsInset = new Insets(0, 0, 10, 0);
 
@@ -101,21 +98,40 @@ public class TurnosForm extends JPanel {
 
         add(clienteLabel, gridBagConstraints);
 
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = GridBagConstraints.WEST;
-
-
-        add(listadoClientes, gridBagConstraints);
+        ///espacio para listado clientes
 
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+
+        add(manicuraLabel, gridBagConstraints);
+
+        ///espacio para listado manicura
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+
+        add(pedicuraLabel, gridBagConstraints);
+
+        ///espacio para listado pedicura
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = GridBagConstraints.WEST;
+
+        add(pagosLabel, gridBagConstraints);
+
+        ///espacio para listado metodos pago
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.insets = buttonInset;
 
         add(addButton, gridBagConstraints);
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.insets = buttonInset;
 
         add(viewButton, gridBagConstraints);
@@ -128,7 +144,7 @@ public class TurnosForm extends JPanel {
     public String getHora() {
         return horaPicker.getText();
     }
-   // public String getCliente() {return fonoField.getText();}
+
 
     public void verTurnos(ActionListener actionListener) {
         viewButton.addActionListener(actionListener);
@@ -136,10 +152,6 @@ public class TurnosForm extends JPanel {
 
     public void submitTurno(ActionListener actionListener) {
         addButton.addActionListener(actionListener);
-    }
-
-    public void listarClientes(ArrayList<Cliente> clientes) {
-        listadoClientes=new JList<>(clientes.toArray(new String[clientes.size()]));
     }
 
 

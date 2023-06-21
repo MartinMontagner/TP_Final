@@ -2,29 +2,120 @@
   {
     "nombre": "Julian",
     "apellido": "Zapata",
-    "idCliente": 1,
+    "idCliente": "1",
     "turnosAcumulados": 40,
     "telefono": "2234567899"
   },
   {
     "nombre": "Martin",
     "apellido": "Montagner",
-    "idCliente": 2,
+    "idCliente": "2",
     "turnosAcumulados": 40,
     "telefono": "2234567899"
   },
   {
     "nombre": "Franco",
     "apellido": "Guidi",
-    "idCliente": 3,
+    "idCliente": "3",
     "turnosAcumulados": 40,
     "telefono": "2234567899"
   },
   {
     "nombre": "Kevin",
     "apellido": "Tolosa",
-    "idCliente": 4,
+    "idCliente": "4",
     "turnosAcumulados": 40,
     "telefono": "2234567899"
+  },
+  {
+    "nombre": "Michael",
+    "apellido": "Jordan",
+    "idCliente": "1",
+    "turnosAcumulados": 40,
+    "telefono": "2232323232"
+  },
+  {
+    "nombre": "Emiliano",
+    "apellido": "Martinez",
+    "idCliente": "1",
+    "turnosAcumulados": 40,
+    "telefono": "2231111111"
+  },
+  {
+    "nombre": "Paulo",
+    "apellido": "Dybala",
+    "idCliente": "1",
+    "turnosAcumulados": 40,
+    "telefono": "2232121212"
+  },
+  {
+    "nombre": "Michael",
+    "apellido": "Jackson",
+    "idCliente": "1",
+    "turnosAcumulados": 40,
+    "telefono": "2237777777"
+  },
+  {
+    "nombre": "Lionel",
+    "apellido": "Messi",
+    "idCliente": "1",
+    "turnosAcumulados": 40,
+    "telefono": "2231010101"
+  },
+  {
+    "nombre": "Magic",
+    "apellido": "Johnson",
+    "idCliente": "2",
+    "turnosAcumulados": 40,
+    "telefono": "2233232323"
+  },
+  {
+    "nombre": "Jason",
+    "apellido": "Archivo",
+    "idCliente": "1",
+    "turnosAcumulados": 40,
+    "telefono": "2236541235"
+  },
+  {
+    "nombre": "Homero",
+    "apellido": "Chino",
+    "idCliente": "1",
+    "turnosAcumulados": 40,
+    "telefono": "2230000000"
+  },
+  {
+    "nombre": "Joaquin",
+    "apellido": "Perez",
+    "idCliente": "709c40cb-9b00-4bf7-a344-0ce5154a39fa",
+    "turnosAcumulados": 40,
+    "telefono": "2231234567"
+  },
+  {
+    "nombre": "Thomas",
+    "apellido": "Shelby",
+    "idCliente": "f2ca786",
+    "turnosAcumulados": 40,
+    "telefono": "2239876541"
+  },
+  {
+    "nombre": "Lucas",
+    "apellido": "Perez",
+    "idCliente": "c36ca43",
+    "turnosAcumulados": 40,
+    "telefono": "2232589632"
+  },
+  {
+    "nombre": "Mateo",
+    "apellido": "Gonzalez",
+    "idCliente": "1c49407",
+    "turnosAcumulados": 40,
+    "telefono": "2231478523"
+  },
+  {
+    "nombre": "Nahuel",
+    "apellido": "Martinez",
+    "idCliente": "58990e1",
+    "turnosAcumulados": 40,
+    "telefono": "2239874563"
   }
 ]

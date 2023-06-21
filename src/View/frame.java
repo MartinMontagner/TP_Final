@@ -18,6 +18,7 @@ public class frame extends JFrame {
 
         ClientesForm clientesForm = new ClientesForm();
         ClientesDetails clientesDetails = new ClientesDetails();
+        ClientesDetails eliminarCliente = new ClientesDetails();
         new ClienteController(clientesForm, clientesDetails);
 
         TurnosForm turnosForm = new TurnosForm();
@@ -36,6 +37,7 @@ public class frame extends JFrame {
 
         clientesForm.verClientes(e -> cardLayout.show(frame.this.getContentPane(), "clientes details"));
         clientesDetails.backButton(e -> cardLayout.show(frame.this.getContentPane(), "tab"));
+        clientesDetails.backButton(e -> clientesDetails.reset());
 
         turnosForm.verTurnos(e -> cardLayout.show(frame.this.getContentPane(), "turnos details"));
         turnosDetails.backButton(e -> cardLayout.show(frame.this.getContentPane(), "tab"));
@@ -46,7 +48,7 @@ public class frame extends JFrame {
         ImageIcon imageIcon = new ImageIcon("src/assets/jp+.png");
         setIconImage(imageIcon.getImage());
 
-        setSize(400, 400);
+        setSize(600, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);

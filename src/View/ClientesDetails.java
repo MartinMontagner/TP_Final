@@ -14,6 +14,7 @@ public class ClientesDetails extends JPanel {
     private String[] clientesTableColumn = {"NOMBRE", "APELLIDO", "TELÉFONO", "ID"};
     private JButton backButton;
 
+
     public ClientesDetails() {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
@@ -48,12 +49,17 @@ public class ClientesDetails extends JPanel {
         defaultTableModel.setColumnIdentifiers(clientesTableColumn);
         int i = 0;
         while(i < lista.size()) {
-            String row = lista.get(i).toString().trim();
+            String row = lista.get(i).displayCliente().trim();
             String[] rows = row.split(",");
             defaultTableModel.addRow(rows);
             i++;
         }
     }
+
+    public void reset() {
+        DefaultTableModel dm = (DefaultTableModel) clientesTable.getModel();
+        dm.setRowCount(0);
+        }
 
     public void backButton(ActionListener actionListener) {
         backButton.addActionListener(actionListener);

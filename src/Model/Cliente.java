@@ -1,15 +1,13 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Cliente implements Serializable {
     private String nombre;
     private String apellido;
-    private Integer idCliente;
-    private static Integer totalClientes=1;
-
+    private String idCliente;
     private Integer turnosAcumulados=40;
-
     private String telefono;
 
     public String getTelefono() {
@@ -28,11 +26,11 @@ public class Cliente implements Serializable {
         this.apellido = apellido;
     }
 
-    public Integer getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Integer idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -42,10 +40,6 @@ public class Cliente implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Integer getTotalClientes() {
-        return totalClientes;
     }
 
     public Integer getTurnosAcumulados() {
@@ -63,30 +57,23 @@ public class Cliente implements Serializable {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.idCliente = totalClientes;
-        totalClientes++;
+        this.idCliente = UUID.randomUUID().toString().substring(0, 7);
     }
 
-    @Override
-    public String toString() {
+
+    public String displayCliente() {
         return
                 nombre +
                 ", " +apellido +
                 ", " + telefono +
                 ", " + idCliente;
     }
-//    @Override
-//    public String toString() {
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("╔══════════════════════════════════╗\n");
-//        sb.append("║      Información del Model.Cliente     ║\n");
-//        sb.append("╟──────────────────────────────────╢\n");
-//        sb.append("║ Nombre: ").append(nombre).append(formatSpaces(nombre, 25)).append("║\n");
-//        sb.append("║ Apellido: ").append(apellido).append(formatSpaces(apellido, 23)).append("║\n");
-//        sb.append("║ ID Model.Cliente:").append(idCliente).append(formatSpaces(idCliente.toString(), 22)).append("║\n");
-//        sb.append("╚══════════════════════════════════╝\n");
-//        return sb.toString();
-//    }
+
+    @Override
+    public String toString() {
+        return
+                nombre +" " + apellido + " tel. " + telefono;
+    }
 
     private String formatSpaces(String text, int spaces) {
         StringBuilder sb = new StringBuilder();

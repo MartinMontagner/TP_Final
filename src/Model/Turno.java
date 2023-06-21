@@ -60,13 +60,30 @@ public class Turno implements Serializable {
 
     @Override
     public String toString() {
-        return "Model.Turno{" +
+        return "Turno{" +
                 "cliente=" + cliente +
                 ", factura=" + factura +
+                ", fecha='" + fecha + '\'' +
                 ", horario='" + horario + '\'' +
                 '}';
     }
-    //    public void descuentoDeTurnos()
+
+    public String displayTurno() {
+        return
+                fecha +
+                        "," + horario +
+                        "," + factura.getPrecio()+
+                        "," + factura.getManicura().getTipoDeManicura().getTipoDeManicura()+
+                        "," + factura.getPedicura().getTipo().getTipoDePedicura()+
+                        "," + cliente.getNombre()+" "+cliente.getApellido();
+    }
+
+    public String getKeyMapa(){
+        String key = this.fecha+" "+this.horario;
+        return key;
+    }
+
+//    public void descuentoDeTurnos()
 //    {
 //        if(cliente.verificarTurnosCliente())
 //        {

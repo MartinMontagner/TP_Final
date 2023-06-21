@@ -12,6 +12,7 @@ public class ClientesForm extends JPanel {
     private JButton addButton;
     private JButton viewButton;
 
+
     public ClientesForm() {
 
         JLabel firstnameLabel = new JLabel("Nombre: ");
@@ -81,6 +82,7 @@ public class ClientesForm extends JPanel {
         gridBagConstraints.insets = buttonInset;
 
         add(viewButton, gridBagConstraints);
+
     }
 
     public String getNombre() {
@@ -98,6 +100,7 @@ public class ClientesForm extends JPanel {
     public void verClientes(ActionListener actionListener) {
         viewButton.addActionListener(actionListener);
     }
+
 
     // reset
     public void reset(boolean bln) {

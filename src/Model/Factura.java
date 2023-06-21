@@ -6,16 +6,29 @@ import java.util.Scanner;
 public class Factura implements Serializable  {
     private Double precio;
     private MedioPago medioPago;
-    private Servicio service;
+    private ServicioPedicura pedicura;
+    private ServicioManicura manicura;
 
-    public Factura(Double precio) {
+    public ServicioPedicura getPedicura() {
+        return pedicura;
     }
 
-    public Factura(MedioPago medioPago, Servicio service) {
-        this.medioPago = medioPago;
-        this.service = service;
-        this.precio = calcularPrecioFactura();
+    public void setPedicura(ServicioPedicura pedicura) {
+        this.pedicura = pedicura;
+    }
 
+    public ServicioManicura getManicura() {
+        return manicura;
+    }
+
+    public void setManicura(ServicioManicura manicura) {
+        this.manicura = manicura;
+    }
+
+    public Factura(int indexPago, ServicioManicura servicioManicura, ServicioPedicura servicioPedicura) {
+        this.medioPago = MedioPago.values()[indexPago];
+        this.pedicura = servicioPedicura;
+        this.manicura = servicioManicura;
     }
 
     public Double getPrecio() {
@@ -34,23 +47,19 @@ public class Factura implements Serializable  {
         this.medioPago = medioPago;
     }
 
-    public Servicio getService() {
-        return service;
-    }
-
-    public void setService(Servicio service) {
-        this.service = service;
-    }
-
     @Override
     public String toString() {
-        return "Model.Factura{" + service +
-                ", con un precio de " + precio +
-                ", pagado con " + medioPago + "}";
+        return "Factura{" +
+                "precio=" + precio +
+                ", medioPago=" + medioPago +
+                ", pedicura=" + pedicura.getTipo().getTipoDePedicura() +
+                ", manicura=" + manicura.getTipoDeManicura().getTipoDeManicura() +
+                '}';
     }
-    public Double calcularPrecioFactura() {
 
-        double precioFactura = this.service.calcularPrecioxHora();
+    public void calcularPrecioFactura() {
+
+        double precioFactura =manicura.calcularPrecio()+pedicura.calcularPrecio() ;
 
         int flag = 0;
 
@@ -69,23 +78,20 @@ public class Factura implements Serializable  {
                         precioFactura *= 0.95;
                         flag = 1;
                         break;
-                        default:
-                        System.out.println("Método de pago inválido, introduce uno de los siguientes:\n -TARJETA \n -TRANSFERENCIA \n -EFECTIVO\n");
-                        Scanner scan = new Scanner(System.in);
-                        String nuevoMedio = scan.next();
-                        medioPago = MedioPago.valueOf(nuevoMedio.toUpperCase());
-                        break;
                 }
             } catch (IllegalArgumentException e) {
-                System.out.println("Método de pago inválido.");
+                System.out.println("Método de pago inválido. (Creando Factura)");
             }
 
         }
-
-            return precioFactura;
+            this.precio=precioFactura;
     }
 
-
-
+    public String getTipoManicura(){
+        return manicura.getTipoDeManicura().getTipoDeManicura();
+    }
+    public String getTipoPedicura(){
+        return pedicura.getTipo().getTipoDePedicura();
+    }
 }
 

@@ -1,7 +1,5 @@
 package Model;
 
-import Model.ListaCliente;
-import Model.ListaTurno;
 
 import java.util.*;
 
@@ -11,8 +9,8 @@ public class MapaGenerico<K, V> {
     //V = VALUE todo asi mejor
     Map<K, V> mapita = new HashMap<>();
 
-    public void agregarDatoSobreescribiendo(K k, V v) {
-        mapita.put(k, v);
+    public MapaGenerico() {
+        this.mapita = new HashMap<>();
     }
 
     public Boolean agregarDatoSinRepetir(K k, V v) {
@@ -21,18 +19,6 @@ public class MapaGenerico<K, V> {
             return true;
         }
         return false;
-    }
-
-    public void recorrerElMapitaYMostrar() {
-        for (Map.Entry<K, V> entry2 : mapita.entrySet()) {
-            K key = entry2.getKey();
-            V value = entry2.getValue();
-           // Model.ListaTurno listaTurno = (Model.ListaTurno) this.devolverValue(key);
-//            Model.ListaCliente lc= new Model.ListaCliente();
-//            lc = listaTurno.getListaDeClientes();
-            System.out.println(key + " -> " + value);
-
-        }
     }
 
     public Boolean eliminarDelMapa(K k) {
@@ -74,16 +60,6 @@ public class MapaGenerico<K, V> {
         Collection<V> value = this.devolverTodosLosValues();
         Set<V> set = new HashSet<>(value);
         return set;
-    }
-//TODO ACAAAAAAAAAAAAAAAAAAAAA MARTINNNNNNNNNNNNNNNNNNNNNNNN
-    public Boolean agregarTurnoAMapa(K k, ListaCliente listaCliente) {
-        ListaTurno listaTurno = (ListaTurno) this.devolverValue(k);
-        if (listaTurno.agregarTurnoALaLista(listaCliente))
-        {
-            this.agregarDatoSobreescribiendo(k, (V) listaTurno);
-            return true;
-        }
-        return false;
     }
 
     public void recorrerElMapitaYVerLasKeys() {

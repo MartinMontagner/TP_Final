@@ -1,12 +1,8 @@
-import Model.Cliente;
-import Model.ClientesDatabase;
-import Model.ListaCliente;
+
 import View.frame;
-import com.google.gson.Gson;
 
 import javax.swing.*;
 import java.io.*;
-import java.util.ArrayList;
 
 
 public class Main {
@@ -16,6 +12,29 @@ public class Main {
 
         //USA THREAD NUEVO DE AWT PARA LA VIEW
         SwingUtilities.invokeLater(frame::new);
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -153,11 +172,10 @@ Asi se hace sin la clase
 //        scanner.nextLine();
         // LocalDate fecha2 =(LocalDate.of(fechaTurnoAnio, fechaTurnoMes, fechaTurnoDia));
 
-        //   mapita.agregarTurnoAMapa(fecha, lista);
+        //mapita.agregarTurnoAMapa(fecha, lista);
 //        mapita.agregarTurnoAMapa(turno2, LocalDate.now());
 //        mapita.agregarTurnoAMapa(turno3, LocalDate.now());
 //        mapita.agregarTurnoAMapa(turno4, LocalDate.now());
-        //  mapita.recorrerElMapitaYMostrar();
-    }
-}/// poner en las keys en vez de no hay turnos que la lista esta disponible para agregar turnos y cuando la lista este completa mostrar no disponibles (veamoslo)
+        //mapita.recorrerElMapitaYMostrar();
+/// poner en las keys en vez de no hay turnos que la lista esta disponible para agregar turnos y cuando la lista este completa mostrar no disponibles (veamoslo)
 //agregar el servicio cuando se muestra el turno

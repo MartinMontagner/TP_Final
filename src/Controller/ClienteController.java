@@ -8,11 +8,11 @@ import View.ClientesDetails;
 import View.ClientesForm;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 
 public class ClienteController {
-    private String databaseFile = "src\\data\\clientesNew.txt";
-    private String jsonFile = "src\\data\\clientesNEW.json";
+    private String jsonFile = "src\\data\\clientes.json";
     private ClientesDatabase database;
     private ClientesForm form;
     private ClientesDetails clientesDetails;
@@ -47,18 +47,19 @@ public class ClienteController {
 
             this.database.agregarCliente(new Cliente(nombre, apellido, telefono));
 
-            //this.database.guardarCliente(new File(databaseFile));
+            JOptionPane.showMessageDialog(this.form, "Cliente " + nombre + " " + apellido + " guardado correctamente.", "Cliente Guardado", JOptionPane.INFORMATION_MESSAGE);
 
             this.database.guardarArrayClientesJson(new File(jsonFile));
             this.form.reset(true);
+
         });
 
         // carga clientes
         this.form.verClientes(e -> {
-           // this.clientesDetails.getClientes(this.database.cargaCliente(new File(databaseFile)));
             this.clientesDetails.getClientesJson(this.database.cargarArrayListDesdeJson(new File(jsonFile)));
         });
 
 
     }
+
 }

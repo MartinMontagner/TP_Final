@@ -2,6 +2,6 @@ package Model;
 
 public interface Cobros {
 
-    public abstract Double calcularPrecioxHora();
+    public abstract Double calcularPrecio();
 
     }

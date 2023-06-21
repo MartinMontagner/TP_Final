@@ -1,14 +1,22 @@
 package View;
 
+import Model.Cliente;
+import Model.MapaGenerico;
+import Model.Turno;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TurnosDetails extends JPanel {
 
     private JTable turnosTable;
-    private String[] turnosTableColumn = {"FECHA", "HORA", "SERVICIO", "CLIENTE"};
+    private String[] turnosTableColumn = {"FECHA", "HORA", "PRECIO","MANICURA","PEDICURA", "CLIENTE"};
 
     private JButton backButton;
 
@@ -35,6 +43,19 @@ public class TurnosDetails extends JPanel {
         int i = 0;
         while(i < objects.length) {
             String row = objects[i].toString().trim();
+            String[] rows = row.split(",");
+            defaultTableModel.addRow(rows);
+            i++;
+        }
+    }
+
+    public void getTurnosJson(MapaGenerico<String, Turno> mapaTurnos) {
+        ArrayList<Turno> listaDeTurnos = new ArrayList<>(mapaTurnos.devolverTodosLosValues());
+        DefaultTableModel defaultTableModel = (DefaultTableModel) turnosTable.getModel();
+        defaultTableModel.setColumnIdentifiers(turnosTableColumn);
+        int i = 0;
+        while(i < listaDeTurnos.size()) {
+            String row = listaDeTurnos.get(i).displayTurno().trim();
             String[] rows = row.split(",");
             defaultTableModel.addRow(rows);
             i++;

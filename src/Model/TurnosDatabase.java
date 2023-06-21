@@ -1,58 +1,55 @@
 package Model;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class TurnosDatabase {
-
-    private ArrayList<Turno> listaTurnos;
+    private MapaGenerico<String, Turno> mapaTurnos;
 
     public TurnosDatabase() {
-        listaTurnos = new ArrayList<>();
+        mapaTurnos = new MapaGenerico<String, Turno>();
     }
 
-    public void agregarTurno(Turno turno) {
-        listaTurnos.add(turno);
+    public void agregarTurno(String key, Turno turno) {
+        this.mapaTurnos.agregarDatoSinRepetir(key, turno);
     }
 
-    // guarda cliente a database
-    public void guardarTurno(File file) {
+    public void guardarMapTurnosJson(File file) {
         try {
-
-            Turno turno;
             String save_data = "";
 
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true));
-            int i = 0;
-            while( i < listaTurnos.size()) {
-                turno = listaTurnos.get(i);
-                save_data=turno.toString();
-                i++;
-            }
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            save_data = gson.toJson(mapaTurnos);
+
             bufferedWriter.write(save_data);
-            bufferedWriter.newLine();
+
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-
-    public Object[] cargaTurno(File file) {
-        Object[] objects;
+    public MapaGenerico<String, Turno> cargarMapaDesdeJson(File file){
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-
-            objects = bufferedReader.lines().toArray();
+            Type type = new TypeToken<MapaGenerico<String, Turno>>() {}.getType();
+            this.mapaTurnos = new Gson().fromJson(bufferedReader, type);
             bufferedReader.close();
-            return objects;
+            return  mapaTurnos;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
+    public boolean comprobarKeyTurno(String key){
+        return mapaTurnos.contieneLlave(key);
+    }
 
 }

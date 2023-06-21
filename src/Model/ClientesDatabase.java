@@ -7,7 +7,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class ClientesDatabase {
 
@@ -15,10 +14,6 @@ public class ClientesDatabase {
 
     public ArrayList<Cliente> getListaClientes() {
         return listaClientes;
-    }
-
-    public void setListaClientes(ArrayList<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
     }
 
     public ClientesDatabase() {
@@ -69,8 +64,6 @@ public class ClientesDatabase {
 
     public void guardarArrayClientesJson(File file) {
         try {
-            // modelo cliente
-            Cliente cliente;
             String save_data = "";
 
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));

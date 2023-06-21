@@ -1,17 +1,14 @@
 package View;
 
-import Model.Cliente;
 import Model.MapaGenerico;
 import Model.Turno;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class TurnosDetails extends JPanel {
 
@@ -36,19 +33,6 @@ public class TurnosDetails extends JPanel {
 
     }
 
-    // carga table desde database
-    public void getTurnos(Object[] objects) {
-        DefaultTableModel defaultTableModel = (DefaultTableModel) turnosTable.getModel();
-        defaultTableModel.setColumnIdentifiers(turnosTableColumn);
-        int i = 0;
-        while(i < objects.length) {
-            String row = objects[i].toString().trim();
-            String[] rows = row.split(",");
-            defaultTableModel.addRow(rows);
-            i++;
-        }
-    }
-
     public void getTurnosJson(MapaGenerico<String, Turno> mapaTurnos) {
         ArrayList<Turno> listaDeTurnos = new ArrayList<>(mapaTurnos.devolverTodosLosValues());
         DefaultTableModel defaultTableModel = (DefaultTableModel) turnosTable.getModel();
@@ -57,6 +41,10 @@ public class TurnosDetails extends JPanel {
         while(i < listaDeTurnos.size()) {
             String row = listaDeTurnos.get(i).displayTurno().trim();
             String[] rows = row.split(",");
+            turnosTable.setAutoCreateRowSorter(true);
+            turnosTable.getColumnModel().getColumn(0).setPreferredWidth(120);
+            turnosTable.getColumnModel().getColumn(1).setPreferredWidth(25);
+            turnosTable.getColumnModel().getColumn(2).setPreferredWidth(30);
             defaultTableModel.addRow(rows);
             i++;
         }
@@ -65,4 +53,6 @@ public class TurnosDetails extends JPanel {
     public void backButton(ActionListener actionListener) {
         backButton.addActionListener(actionListener);
     }
+
+
 }

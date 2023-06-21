@@ -9,9 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
 
 public class TurnoController {
     private String turnosJson = "src\\data\\turnos.json";
@@ -29,7 +26,6 @@ public class TurnoController {
     public TurnoController(TurnosForm form, TurnosDetails turnosDetails) {
 
         this.turnosDatabase = new TurnosDatabase();
-
         this.clientesDatabase = new ClientesDatabase();
         this.form = form;
         this.turnosDetails = turnosDetails;
@@ -89,7 +85,7 @@ public class TurnoController {
               ServicioPedicura servicioPedicura = new ServicioPedicura(TipoDePedicura.values()[indexPedicura]);
 
               Factura factura = new Factura(indexPago, servicioManicura, servicioPedicura);
-              factura.calcularPrecioFactura();;
+              factura.calcularPrecioFactura();
 
               Turno turno= new Turno(listaCliente.get(indexCliente), factura, fecha, hora);
 
@@ -106,19 +102,21 @@ public class TurnoController {
 
         });
 
-
-
         // carga turno
         this.form.verTurnos(e -> {
             this.turnosDetails.getTurnosJson(this.turnosDatabase.cargarMapaDesdeJson(new File(turnosJson)));
         });
 
+        //reload clientes turno
+        this.form.updateClientesTurnos(e -> {
+            listarClientes();
+        });
 
     }
     public void listarClientes(){
+        listadoClientes =new JList<>();
 
         this.clientesDetails.getClientesJson(this.clientesDatabase.cargarArrayListDesdeJson(new File(clientesJson)));
-
         Insets fieldsInset = new Insets(0, 0, 10, 0);
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.insets = fieldsInset;
@@ -155,7 +153,7 @@ public class TurnoController {
         listadoManicuras.setVisibleRowCount(-1);
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = GridBagConstraints.WEST;
 
         this.form.add(listadoManicuras, gridBagConstraints);
@@ -178,7 +176,7 @@ public class TurnoController {
         listadoPedicuras.setVisibleRowCount(-1);
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = GridBagConstraints.WEST;
 
         this.form.add(listadoPedicuras, gridBagConstraints);
@@ -201,7 +199,7 @@ public class TurnoController {
         listadoPagos.setVisibleRowCount(-1);
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = GridBagConstraints.WEST;
 
         this.form.add(listadoPagos, gridBagConstraints);

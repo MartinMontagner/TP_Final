@@ -3,19 +3,14 @@ package View;
 import Controller.ClienteController;
 import Controller.TurnoController;
 
-import javax.imageio.ImageIO;
-import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class frame extends JFrame {
 
     private CardLayout cardLayout;
 
-    public frame()  {
+    public frame() {
         super("JP+ NAIL SALON");
 
         cardLayout = new CardLayout();
@@ -23,7 +18,6 @@ public class frame extends JFrame {
 
         ClientesForm clientesForm = new ClientesForm();
         ClientesDetails clientesDetails = new ClientesDetails();
-        ClientesDetails eliminarCliente = new ClientesDetails();
         new ClienteController(clientesForm, clientesDetails);
 
         TurnosForm turnosForm = new TurnosForm();
@@ -46,6 +40,7 @@ public class frame extends JFrame {
 
         clientesDetails.eliminarButton(e -> cardLayout.show(frame.this.getContentPane(), "tab"));
 
+
         turnosForm.verTurnos(e -> cardLayout.show(frame.this.getContentPane(), "turnos details"));
         turnosDetails.backButton(e -> cardLayout.show(frame.this.getContentPane(), "tab"));
 
@@ -59,7 +54,10 @@ public class frame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+
     }
+
+
 
 
 }

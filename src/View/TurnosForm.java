@@ -5,10 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.Locale;
 
-import Model.Cliente;
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.github.lgooddatepicker.components.TimePicker;
@@ -23,6 +21,7 @@ public class TurnosForm extends JPanel {
     private TimePicker horaPicker;
     private JButton addButton;
     private JButton viewButton;
+    private JButton reloadClientesButton;
 
     private static class TiempoPermitido implements TimeVetoPolicy {
 
@@ -30,7 +29,7 @@ public class TurnosForm extends JPanel {
         public boolean isTimeAllowed(LocalTime time) {
             // admite tiempo de 9am a 5pm.
             return PickerUtilities.isLocalTimeInRange(
-                    time, LocalTime.of(9, 00), LocalTime.of(17, 00), true);
+                    time, LocalTime.of(9, 0), LocalTime.of(17, 0), true);
         }
 
     }
@@ -53,6 +52,8 @@ public class TurnosForm extends JPanel {
         addButton.setPreferredSize(new Dimension(278, 40));
         viewButton = new JButton("Ver todos los Turnos");
         viewButton.setPreferredSize(new Dimension(278, 40));
+        reloadClientesButton = new JButton("Update Clientes");
+        reloadClientesButton.setPreferredSize(new Dimension(125, 20));
 
         Insets fieldsInset = new Insets(0, 0, 10, 0);
 
@@ -61,7 +62,7 @@ public class TurnosForm extends JPanel {
         setLayout(new GridBagLayout());
         GridBagConstraints gridBagConstraints = new GridBagConstraints();
         gridBagConstraints.insets = fieldsInset;
-        gridBagConstraints.fill = GridBagConstraints.NONE;
+        gridBagConstraints.fill = GridBagConstraints.BASELINE;
 
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -102,6 +103,12 @@ public class TurnosForm extends JPanel {
 
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = GridBagConstraints.NORTH;
+
+        add(reloadClientesButton, gridBagConstraints);
+
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
 
         add(manicuraLabel, gridBagConstraints);
@@ -109,7 +116,7 @@ public class TurnosForm extends JPanel {
         ///espacio para listado manicura
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
 
         add(pedicuraLabel, gridBagConstraints);
@@ -117,7 +124,7 @@ public class TurnosForm extends JPanel {
         ///espacio para listado pedicura
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = GridBagConstraints.WEST;
 
         add(pagosLabel, gridBagConstraints);
@@ -125,13 +132,13 @@ public class TurnosForm extends JPanel {
         ///espacio para listado metodos pago
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 13;
         gridBagConstraints.insets = buttonInset;
 
         add(addButton, gridBagConstraints);
 
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 13;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.insets = buttonInset;
 
         add(viewButton, gridBagConstraints);
@@ -154,6 +161,8 @@ public class TurnosForm extends JPanel {
         addButton.addActionListener(actionListener);
     }
 
-
+    public void updateClientesTurnos(ActionListener actionListener) {
+        reloadClientesButton.addActionListener(actionListener);
+    }
 
 }

@@ -96,5 +96,40 @@
     "idCliente": "cf454ba",
     "turnosAcumulados": 40,
     "telefono": "2230000000"
+  },
+  {
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "idCliente": "9b1fbb2",
+    "turnosAcumulados": 40,
+    "telefono": "2236543214"
+  },
+  {
+    "nombre": "Claudia",
+    "apellido": "Rodriguez",
+    "idCliente": "f88325e",
+    "turnosAcumulados": 40,
+    "telefono": "2237895412"
+  },
+  {
+    "nombre": "Julieta",
+    "apellido": "Gutierrez",
+    "idCliente": "eca3714",
+    "turnosAcumulados": 40,
+    "telefono": "2233216547"
+  },
+  {
+    "nombre": "Guillermo",
+    "apellido": "del Toro",
+    "idCliente": "9cf61d4",
+    "turnosAcumulados": 40,
+    "telefono": "2236659873"
+  },
+  {
+    "nombre": "Peter",
+    "apellido": "Parker",
+    "idCliente": "82d6c9b",
+    "turnosAcumulados": 40,
+    "telefono": "2238896541"
   }
 ]

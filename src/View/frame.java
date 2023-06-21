@@ -40,9 +40,11 @@ public class frame extends JFrame {
         add(turnosForm, "turnosForm");
         add(turnosDetails, "turnos details");
 
+        clientesForm.verClientes(e -> clientesDetails.reset());
         clientesForm.verClientes(e -> cardLayout.show(frame.this.getContentPane(), "clientes details"));
         clientesDetails.backButton(e -> cardLayout.show(frame.this.getContentPane(), "tab"));
-        clientesDetails.backButton(e -> clientesDetails.reset());
+
+        clientesDetails.eliminarButton(e -> cardLayout.show(frame.this.getContentPane(), "tab"));
 
         turnosForm.verTurnos(e -> cardLayout.show(frame.this.getContentPane(), "turnos details"));
         turnosDetails.backButton(e -> cardLayout.show(frame.this.getContentPane(), "tab"));

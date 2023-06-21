@@ -10,10 +10,12 @@ import java.util.ArrayList;
 
 public class ClientesDetails extends JPanel {
 
+
+
     private JTable clientesTable;
     private String[] clientesTableColumn = {"NOMBRE", "APELLIDO", "TELÉFONO", "ID"};
     private JButton backButton;
-
+    private JButton eliminarButton;
 
     public ClientesDetails() {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -24,8 +26,10 @@ public class ClientesDetails extends JPanel {
         JScrollPane userTableScroll = new JScrollPane(clientesTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         backButton = new JButton("SALIR");
+        eliminarButton = new JButton("Eliminar Cliente Seleccionado");
         add(toolBar);
         toolBar.add(backButton);
+        toolBar.add(eliminarButton);
         toolBar.setMaximumSize(new Dimension(Integer.MAX_VALUE, toolBar.getMinimumSize().height));
         add(userTableScroll);
 
@@ -63,5 +67,13 @@ public class ClientesDetails extends JPanel {
 
     public void backButton(ActionListener actionListener) {
         backButton.addActionListener(actionListener);
+    }
+
+    public void eliminarButton(ActionListener actionListener) {
+        eliminarButton.addActionListener(actionListener);
+    }
+
+    public int getClienteTable() {
+        return clientesTable.getSelectedRow();
     }
 }

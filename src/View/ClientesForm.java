@@ -25,7 +25,7 @@ public class ClientesForm extends JPanel {
 
         addButton = new JButton("Agregar Cliente");
         addButton.setPreferredSize(new Dimension(278, 40));
-        viewButton = new JButton("Ver todos los Clientes");
+        viewButton = new JButton("Ver Clientes");
         viewButton.setPreferredSize(new Dimension(278, 40));
 
 

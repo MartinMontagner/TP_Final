@@ -91,4 +91,11 @@ public class ClientesDatabase {
             return null;
     }
 
+    public Cliente eliminarCliente(int index)
+    {
+        Cliente eliminado = listaClientes.get(index);
+        listaClientes.remove(index);
+        return eliminado;
+    }
+
 }

@@ -70,25 +70,11 @@
     "telefono": "2233232323"
   },
   {
-    "nombre": "Jason",
-    "apellido": "Archivo",
-    "idCliente": "1",
-    "turnosAcumulados": 40,
-    "telefono": "2236541235"
-  },
-  {
     "nombre": "Homero",
     "apellido": "Chino",
     "idCliente": "1",
     "turnosAcumulados": 40,
     "telefono": "2230000000"
-  },
-  {
-    "nombre": "Joaquin",
-    "apellido": "Perez",
-    "idCliente": "709c40cb-9b00-4bf7-a344-0ce5154a39fa",
-    "turnosAcumulados": 40,
-    "telefono": "2231234567"
   },
   {
     "nombre": "Thomas",
@@ -110,12 +96,5 @@
     "idCliente": "1c49407",
     "turnosAcumulados": 40,
     "telefono": "2231478523"
-  },
-  {
-    "nombre": "Nahuel",
-    "apellido": "Martinez",
-    "idCliente": "58990e1",
-    "turnosAcumulados": 40,
-    "telefono": "2239874563"
   }
 ]

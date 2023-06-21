@@ -12,8 +12,8 @@ public class Main {
 
 
 
-        //USA THREAD NUEVO DE AWT PARA LA VIEW
         new intro();
+        //USA THREAD NUEVO DE AWT PARA LA VIEW
         SwingUtilities.invokeLater(frame::new);
 
 

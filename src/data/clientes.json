@@ -70,27 +70,6 @@
     "telefono": "2233232323"
   },
   {
-    "nombre": "Jason",
-    "apellido": "Archivo",
-    "idCliente": "1",
-    "turnosAcumulados": 40,
-    "telefono": "2236541235"
-  },
-  {
-    "nombre": "Homero",
-    "apellido": "Chino",
-    "idCliente": "1",
-    "turnosAcumulados": 40,
-    "telefono": "2230000000"
-  },
-  {
-    "nombre": "Joaquin",
-    "apellido": "Perez",
-    "idCliente": "709c40cb-9b00-4bf7-a344-0ce5154a39fa",
-    "turnosAcumulados": 40,
-    "telefono": "2231234567"
-  },
-  {
     "nombre": "Thomas",
     "apellido": "Shelby",
     "idCliente": "f2ca786",
@@ -112,10 +91,10 @@
     "telefono": "2231478523"
   },
   {
-    "nombre": "Nahuel",
-    "apellido": "Martinez",
-    "idCliente": "58990e1",
+    "nombre": "Homero",
+    "apellido": "Chino",
+    "idCliente": "cf454ba",
     "turnosAcumulados": 40,
-    "telefono": "2239874563"
+    "telefono": "2230000000"
   }
 ]

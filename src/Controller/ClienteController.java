@@ -59,6 +59,18 @@ public class ClienteController {
             this.clientesDetails.getClientesJson(this.database.cargarArrayListDesdeJson(new File(jsonFile)));
         });
 
+        //elimina cliente
+        this.clientesDetails.eliminarButton(e -> {
+            int index=this.clientesDetails.getClienteTable();
+            if(index>-1) {
+                Cliente eliminado = this.database.eliminarCliente(index);
+                this.database.guardarArrayClientesJson(new File(jsonFile));
+                JOptionPane.showMessageDialog(this.form, "Cliente " + eliminado.getNombre() + " " + eliminado.getApellido() + " eliminado correctamente.", "Cliente Eliminado", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this.form, "No selecciono ningún cliente para eliminar.", "No se elimino cliente",JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
 
     }
 

@@ -109,7 +109,7 @@ public class TurnoController {
 
         //reload clientes turno
         this.form.updateClientesTurnos(e -> {
-            listarClientes();
+            ///listarClientes();
         });
 
     }

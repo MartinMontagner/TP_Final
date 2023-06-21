@@ -206,6 +206,29 @@
       },
       "fecha": "21 de junio de 2023",
       "horario": "12:00pm"
+    },
+    "29 de junio de 2023 12:30pm": {
+      "cliente": {
+        "nombre": "Guillermo",
+        "apellido": "del Toro",
+        "idCliente": "9cf61d4",
+        "turnosAcumulados": 40,
+        "telefono": "2236659873"
+      },
+      "factura": {
+        "precio": 665.0,
+        "medioPago": "EFECTIVO",
+        "pedicura": {
+          "tipo": "ESTANDAR",
+          "duracion": 30.0
+        },
+        "manicura": {
+          "tipoDeManicura": "GEL",
+          "duracion": 30.0
+        }
+      },
+      "fecha": "29 de junio de 2023",
+      "horario": "12:30pm"
     }
   }
 }
